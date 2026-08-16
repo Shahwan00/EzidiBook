@@ -1,1 +1,72 @@
+background:#ffffff;
 
+border-radius:22px;
+
+overflow:hidden;
+
+margin-bottom:25px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.10);
+
+}
+
+.post-image{
+
+width:100%;
+
+display:block;
+
+}
+
+.post-text{
+
+padding:18px;
+
+font-size:20px;
+
+line-height:1.8;
+
+color:#222;
+
+}
+
+.post-date{
+
+padding:0 18px 18px;
+
+font-size:15px;
+
+color:#888;
+
+}
+
+</style>
+<script>
+const postsContainer = document.getElementById("postsContainer");
+
+// قراءة المنشورات المحفوظة
+const posts = JSON.parse(localStorage.getItem("dtmd_posts")) || [];
+
+if (posts.length > 0) {
+
+    postsContainer.innerHTML = "";
+
+    posts.reverse().forEach(post => {
+
+        let card = document.createElement("div");
+        card.className = "post-card";
+
+        card.innerHTML = 
+            ${post.image ? <img src="${post.image}" class="post-image"> : ""}
+
+            ${post.text ? <div class="post-text">${post.text}</div> : ""}
+
+            <div class="post-date">${post.date}</div>
+        ;
+
+        postsContainer.appendChild(card);
+
+    });
+
+}
+                            </script>
