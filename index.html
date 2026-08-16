@@ -1,1 +1,178 @@
+<select id="language">
+<option selected disabled>اختر لغة</option>
+<option>العربية</option>
+<option>Hindi</option>
+<option>Deutsch</option>
+<option>English</option>
+<option>Español</option>
+<option>Français</option>
+<option>Türkçe</option>
+<option>Русский</option>
+<option>Italiano</option>
+<option>Português</option>
+<option>Nederlands</option>
+<option>Svenska</option>
+</select>
 
+
+<select id="level">
+<option selected disabled>مستوى اللغة</option>
+<option>مبتدئ</option>
+<option>متوسط</option>
+<option>جيد جداً</option>
+<option>ممتاز</option>
+</select>
+
+<button id="register">إنشاء الحساب</button>
+<script>
+
+document.getElementById("register").onclick = function () {
+
+let photo = document.getElementById("photo").files.length;
+
+let name = document.querySelector('input[type="text"]').value.trim();
+
+let email = document.querySelector('input[type="email"]').value.trim();
+
+let pass = document.querySelectorAll('input[type="password"]')[0].value;
+
+let pass2 = document.querySelectorAll('input[type="password"]')[1].value;
+
+if(photo==0){
+alert("الرجاء اختيار صورة شخصية");
+return;
+}
+
+if(name==""){
+alert("الرجاء إدخال الاسم الثلاثي");
+return;
+}
+
+if(email==""){
+alert("الرجاء إدخال البريد الإلكتروني");
+return;
+}
+
+if(pass==""){
+alert("الرجاء إدخال كلمة المرور");
+return;
+}
+
+if(pass2==""){
+alert("الرجاء تأكيد كلمة المرور");
+return;
+}
+
+if(pass!=pass2){
+alert("كلمتا المرور غير متطابقتين");
+return;
+}
+
+let birth = document.getElementById("birth").value;
+
+if(birth==""){
+    alert("الرجاء اختيار تاريخ الميلاد");
+    return;
+}
+
+let social = document.querySelectorAll("select")[0].value;
+
+if(social=="اختر الحالة الاجتماعية"){
+    alert("الرجاء اختيار الحالة الاجتماعية");
+    return;
+}
+
+let gender = document.querySelectorAll("select")[1].value;
+
+if(gender=="اختر الجنس"){
+    alert("الرجاء اختيار الجنس");
+    return;
+}
+
+let ezidiClass = document.querySelectorAll("select")[2].value;
+
+if(ezidiClass=="هل حضرتك من أي طبقة اجتماعية إيزيدية؟"){
+    alert("الرجاء اختيار الطبقة الاجتماعية الإيزيدية");
+    return;
+}
+
+let country = document.getElementById("country").value;
+
+if(country=="اختر الدولة"){
+    alert("الرجاء اختيار الدولة");
+    return;
+}
+
+let region = document.getElementById("region").value.trim();
+
+if(region==""){
+    alert("الرجاء إدخال المنطقة");
+    return;
+}
+
+let job = document.getElementById("job").value.trim();
+
+if(job==""){
+    alert("الرجاء إدخال المهنة");
+    return;
+}
+
+let language = document.getElementById("language").value;
+
+if(language=="" || language=="اختر لغة"){
+    alert("الرجاء اختيار لغة");
+    return;
+}
+
+let level = document.getElementById("level").value;
+
+if(level=="مستوى اللغة"){
+    alert("الرجاء اختيار مستوى اللغة");
+    return;
+}
+
+window.location.href = "home.html";
+
+}
+
+</script>
+<script>
+
+document.getElementById("fullname").innerText =
+localStorage.getItem("fullname") || "الاسم الثلاثي";
+
+document.getElementById("username").innerText =
+"@" + (localStorage.getItem("username") || "username");
+
+document.getElementById("birth").innerText =
+localStorage.getItem("birth") || "--";
+
+document.getElementById("zodiac").innerText =
+localStorage.getItem("zodiac") || "--";
+
+document.getElementById("gender").innerText =
+localStorage.getItem("gender") || "--";
+
+document.getElementById("social").innerText =
+localStorage.getItem("social") || "--";
+
+document.getElementById("ezidi").innerText =
+localStorage.getItem("ezidiClass") || "--";
+
+document.getElementById("country").innerText =
+localStorage.getItem("country") || "--";
+
+document.getElementById("region").innerText =
+localStorage.getItem("region") || "--";
+
+document.getElementById("job").innerText =
+localStorage.getItem("job") || "--";
+
+document.getElementById("language").innerText =
+localStorage.getItem("language") || "--";
+
+document.getElementById("level").innerText =
+localStorage.getItem("level") || "--";
+
+</script>
+</body>
