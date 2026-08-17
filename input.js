@@ -1,4 +1,5 @@
-// المعاينة والبرج
+let userImageData = ""; // متغير لحفظ نص الصورة
+
 document.addEventListener("DOMContentLoaded", function () {
     let photoInput = document.getElementById("photo");
     if (photoInput) {
@@ -7,9 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (file) {
                 let preview = document.getElementById("preview");
                 let plus = document.getElementById("plus");
-                preview.src = URL.createObjectURL(file);
-                preview.style.display = "block";
-                plus.style.display = "none";
+                
+                // تحويل الصورة إلى Base64 للحفظ
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    userImageData = e.target.result;
+                    preview.src = userImageData;
+                    preview.style.display = "block";
+                    plus.style.display = "none";
+                };
+                reader.readAsDataURL(file);
             }
         };
     }
@@ -39,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    // زر التسجيل وحفظ البيانات
     let registerBtn = document.getElementById("register");
     if (registerBtn) {
         registerBtn.onclick = function () {
@@ -83,7 +90,10 @@ document.addEventListener("DOMContentLoaded", function () {
             let level = document.getElementById("level").value;
             if (level == "مستوى اللغة") { alert("الرجاء اختيار مستوى اللغة"); return; }
 
-            // حفظ كل العناصر للذاكرة المحلية
+            // حفظ الصورة المترجمة إلى نص
+            localStorage.setItem("userAvatar", userImageData);
+
+            // حفظ كافة البيانات
             localStorage.setItem("fullname", name);
             localStorage.setItem("birth", birth);
             localStorage.setItem("zodiac", document.getElementById("zodiac").value);
