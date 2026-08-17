@@ -81,6 +81,13 @@ border-radius:10px;
 font-size:18px;
 cursor:pointer;
 }
+
+label{
+display:block;
+margin-top:15px;
+font-size:14px;
+color:#333;
+}
 </style>
 </head>
 
@@ -105,21 +112,7 @@ cursor:pointer;
 
 <input type="password" placeholder="تأكيد كلمة المرور">
 
-</div>
-
-<script>
-photo.onchange=function(){
-const file=this.files[0];
-if(file){
-preview.src=URL.createObjectURL(file);
-preview.style.display="block";
-plus.style.display="none";
-}
-}
-</script>
-تاريخ الميلاد
-</body>
-</html>
+<label for="birth">تاريخ الميلاد</label>
 <input type="date" id="birth">
 
 <input type="text" id="zodiac" placeholder="البرج" readonly>
@@ -143,7 +136,75 @@ plus.style.display="none";
 <option>بير</option>
 </select>
 
+<select id="country">
+<option selected disabled>اختر الدولة</option>
+<option>ألمانيا</option>
+<option>العراق</option>
+<option>سوريا</option>
+<option>تركيا</option>
+<option>إسبانيا</option>
+<option>فرنسا</option>
+<option>هولندا</option>
+<option>بلجيكا</option>
+<option>السويد</option>
+<option>النمسا</option>
+<option>سويسرا</option>
+<option>الدنمارك</option>
+<option>النرويج</option>
+<option>فنلندا</option>
+<option>بريطانيا</option>
+<option>أمريكا</option>
+<option>كندا</option>
+<option>أستراليا</option>
+</select>
+
+<input type="text" id="region" placeholder="المنطقة / المدينة">
+
+<input type="text" id="job" placeholder="المهنة">
+
+<label>اللغة الام</label>
+<input type="text" value="𐺩𐺏𐺨𐺋𐺨" readonly>
+
+<label>اللغات التي تتحدث بها</label>
+
+<select id="language">
+<option selected disabled>اختر لغة</option>
+<option>العربية</option>
+<option>Hindi</option>
+<option>Deutsch</option>
+<option>English</option>
+<option>Español</option>
+<option>Français</option>
+<option>Türkçe</option>
+<option>Русский</option>
+<option>Italiano</option>
+<option>Português</option>
+<option>Nederlands</option>
+<option>Svenska</option>
+</select>
+
+<select id="level">
+<option selected disabled>مستوى اللغة</option>
+<option>مبتدئ</option>
+<option>متوسط</option>
+<option>جيد جداً</option>
+<option>ممتاز</option>
+</select>
+
+<button id="register">إنشاء الحساب</button>
+
+</div>
+
 <script>
+photo.onchange=function(){
+const file=this.files[0];
+if(file){
+preview.src=URL.createObjectURL(file);
+preview.style.display="block";
+plus.style.display="none";
+}
+}
+
 birth.onchange=function(){
 
 let d=new Date(this.value);
@@ -170,64 +231,6 @@ else zodiac="الحوت";
 document.getElementById("zodiac").value=zodiac;
 
 }
-</script>
-<select id="country">
-<option selected disabled>اختر الدولة</option>
-<option>ألمانيا</option>
-<option>العراق</option>
-<option>سوريا</option>
-<option>تركيا</option>
-<option>إسبانيا</option>
-<option>فرنسا</option>
-<option>هولندا</option>
-<option>بلجيكا</option>
-<option>السويد</option>
-<option>النمسا</option>
-<option>سويسرا</option>
-<option>الدنمارك</option>
-<option>النرويج</option>
-<option>فنلندا</option>
-<option>بريطانيا</option>
-<option>أمريكا</option>
-<option>كندا</option>
-<option>أستراليا</option>
-</select>
-
-<input type="text" id="region" placeholder="المنطقة / المدينة">
-
-<input type="text" id="job" placeholder="المهنة">
-اللغة الام
-<input type="text" value="𐺩𐺏𐺨𐺋𐺨" readonly>
-
-<label>اللغات التي تتحدث بها</label>
-
-<select id="language">
-<option selected disabled>اختر لغة</option>
-<option>العربية</option>
-<option>Hindi</option>
-<option>Deutsch</option>
-<option>English</option>
-<option>Español</option>
-<option>Français</option>
-<option>Türkçe</option>
-<option>Русский</option>
-<option>Italiano</option>
-<option>Português</option>
-<option>Nederlands</option>
-<option>Svenska</option>
-</select>
-
-
-<select id="level">
-<option selected disabled>مستوى اللغة</option>
-<option>مبتدئ</option>
-<option>متوسط</option>
-<option>جيد جداً</option>
-<option>ممتاز</option>
-</select>
-
-<button id="register">إنشاء الحساب</button>
-<script>
 
 document.getElementById("register").onclick = function () {
 
@@ -337,45 +340,7 @@ if(level=="مستوى اللغة"){
 window.location.href = "home.html";
 
 }
-
 </script>
-<script>
 
-document.getElementById("fullname").innerText =
-localStorage.getItem("fullname") || "الاسم الثلاثي";
-
-document.getElementById("username").innerText =
-"@" + (localStorage.getItem("username") || "username");
-
-document.getElementById("birth").innerText =
-localStorage.getItem("birth") || "--";
-
-document.getElementById("zodiac").innerText =
-localStorage.getItem("zodiac") || "--";
-
-document.getElementById("gender").innerText =
-localStorage.getItem("gender") || "--";
-
-document.getElementById("social").innerText =
-localStorage.getItem("social") || "--";
-
-document.getElementById("ezidi").innerText =
-localStorage.getItem("ezidiClass") || "--";
-
-document.getElementById("country").innerText =
-localStorage.getItem("country") || "--";
-
-document.getElementById("region").innerText =
-localStorage.getItem("region") || "--";
-
-document.getElementById("job").innerText =
-localStorage.getItem("job") || "--";
-
-document.getElementById("language").innerText =
-localStorage.getItem("language") || "--";
-
-document.getElementById("level").innerText =
-localStorage.getItem("level") || "--";
-
-</script>
 </body>
+</html>
