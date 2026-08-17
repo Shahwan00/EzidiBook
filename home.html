@@ -15,8 +15,48 @@
     </div>
 
     <div class="main-content">
-        <h2>مرحباً بك في الواجهة الرئيسية</h2>
-        <p style="margin-top: 15px; color: #666;">آخر الأخبار والمنشورات تظهر هنا...</p>
+        
+        <!-- كارت المنشور -->
+        <div class="post-card">
+            <!-- رأس المنشور: الصورة الشخصية والاسم -->
+            <div class="post-header">
+                <div class="post-avatar">
+                    <img src="https://via.placeholder.com/40" alt="Avatar">
+                </div>
+                <div class="post-user-info">
+                    <span class="post-author-name">اسم المستخدم</span>
+                    <span class="post-time">منذ 5 دقائق</span>
+                </div>
+            </div>
+
+            <!-- نص المنشور -->
+            <div class="post-text">
+                مرحباً بالجميع! هذا منشور يحتوي على نص وصورة وفيديو تجريبي.
+            </div>
+
+            <!-- media: صورة المنشور -->
+            <div class="post-media">
+                <img src="https://via.placeholder.com/500x300" alt="صورة المنشور">
+            </div>
+
+            <!-- media: فيديو المنشور -->
+            <div class="post-media" style="margin-top: 10px;">
+                <video controls style="width: 100%; border-radius: 10px;">
+                    <source src="sample.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+
+            <!-- شريط التفاعلات أسفل المنشور -->
+            <div class="post-actions">
+                <button class="action-btn">❤️ <span>إعجاب</span></button>
+                <button class="action-btn">💬 <span>تعليق</span></button>
+                <button class="action-btn">🎙️ <span>صوتي</span></button>
+                <button class="action-btn">🔄 <span>مشاركة</span></button>
+                <button class="action-btn">✈️ <span>إرسال</span></button>
+            </div>
+        </div>
+
     </div>
 
     <!-- الشريط السفلي الثابت -->
