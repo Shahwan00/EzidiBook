@@ -1,10 +1,10 @@
 let mediaData = { image: "", video: "" };
 
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. التحقق من حالة تسجيل الدخول
+    // 1. التحقق من حالة تسجيل الدخول (في حال سجل خروجه لا يمكنه رؤية الصفحة)
     let isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (isLoggedIn !== "true") {
-        window.location.replace("login.html");
+    if (isLoggedIn === "false") {
+        window.location.href = "login.html";
         return;
     }
 
@@ -59,7 +59,7 @@ function addNewPost() {
     let savedAvatar = localStorage.getItem("userAvatar") || "https://via.placeholder.com/40";
 
     let newPost = {
-        id: Date.now(), // رقم فريد للحذف
+        id: Date.now(),
         author: savedName,
         avatar: savedAvatar,
         text: text,
@@ -122,7 +122,6 @@ function loadPosts() {
     feed.innerHTML = postsHTML;
 }
 
-// دالة حذف المنشور
 function deletePost(id) {
     if (confirm("هل تريد حذف هذا المنشور؟")) {
         let posts = JSON.parse(localStorage.getItem("posts") || "[]");
@@ -132,8 +131,9 @@ function deletePost(id) {
     }
 }
 
-// دالة تسجيل الخروج
+// دالة الخروج المباشرة
 function logout() {
     localStorage.setItem("isLoggedIn", "false");
-    window.location.replace("login.html");
+    // التحويل فوراً لصفحة تسجيل الدخول أو إنشاء الحساب
+    window.location.href = "login.html";
 }
