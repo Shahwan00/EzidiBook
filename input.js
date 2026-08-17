@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let registerBtn = document.getElementById("register");
     if (registerBtn) {
         registerBtn.onclick = function (e) {
-            e.preventDefault(); // منع الإرسال الافتراضي للنموذج
+            e.preventDefault();
 
             let photo = document.getElementById("photo").files.length;
             let name = document.getElementById("fullnameInput").value.trim();
@@ -91,9 +91,11 @@ document.addEventListener("DOMContentLoaded", function () {
             let level = document.getElementById("level").value;
             if (level == "مستوى اللغة") { alert("الرجاء اختيار مستوى اللغة"); return; }
 
-            // حفظ كافة البيانات
+            // حفظ البيانات وحالة الدخول
             localStorage.setItem("userAvatar", userImageData);
             localStorage.setItem("fullname", name);
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", pass);
             localStorage.setItem("birth", birth);
             localStorage.setItem("zodiac", document.getElementById("zodiac").value);
             localStorage.setItem("social", social);
@@ -104,8 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("job", job);
             localStorage.setItem("language", selectedLangs.join(", "));
             localStorage.setItem("level", level);
+            localStorage.setItem("isLoggedIn", "true");
 
-            // توجيه إجباري للصفحة الرئيسية
             window.location.replace("home.html");
         };
     }
