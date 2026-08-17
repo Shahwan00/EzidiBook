@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 const reader = new FileReader();
                 reader.onload = function (e) {
                     userImageData = e.target.result;
-                    if(preview) {
+                    if (preview) {
                         preview.src = userImageData;
                         preview.style.display = "block";
                     }
-                    if(plus) plus.style.display = "none";
+                    if (plus) plus.style.display = "none";
                 };
                 reader.readAsDataURL(file);
             }
@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
             else if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) zodiac = "الدلو";
             else zodiac = "الحوت";
 
-            let zodiacInput = document.getElementById("zodiac");
-            if(zodiacInput) zodiacInput.value = zodiac;
+            let zodiacEl = document.getElementById("zodiac");
+            if (zodiacEl) zodiacEl.value = zodiac;
         };
     }
 
@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
         registerBtn.onclick = function (e) {
             e.preventDefault();
 
-            // 1. قراءة البيانات بطريقة آمنة لمنع تعطل الكود
             let photoEl = document.getElementById("photo");
             let photo = (photoEl && photoEl.files) ? photoEl.files.length : 0;
 
@@ -99,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-            // 2. التحقق من الحقول
             if (photo === 0) { alert("الرجاء اختيار صورة شخصية"); return; }
             if (name === "") { alert("الرجاء إدخال الاسم الثلاثي"); return; }
             if (email === "") { alert("الرجاء إدخال البريد الإلكتروني"); return; }
@@ -117,7 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (selectedLangs.length === 0) { alert("الرجاء اختيار لغة واحدة على الأقل"); return; }
             if (level === "مستوى اللغة" || level === "") { alert("الرجاء اختيار مستوى اللغة"); return; }
 
-            // 3. حفظ البيانات بنجاح
             localStorage.setItem("userAvatar", userImageData);
             localStorage.setItem("fullname", name);
             localStorage.setItem("email", email);
@@ -132,8 +129,8 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("job", job);
             localStorage.setItem("language", selectedLangs.join(", "));
             localStorage.setItem("level", level);
-            
             localStorage.setItem("isLoggedIn", "true");
+
             window.location.replace("home.html");
         };
     }
