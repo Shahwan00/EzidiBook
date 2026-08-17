@@ -109,7 +109,7 @@ body {
 }
 
 /* ==========================================
-   3. تصميم كارت المنشورات والتفاعل الجديد
+   3. تصميم كارت المنشورات والتفاعل
    ========================================== */
 .post-card {
     background: #ffffff;
@@ -126,6 +126,7 @@ body {
     align-items: center;
     gap: 10px;
     margin-bottom: 12px;
+    position: relative;
 }
 
 .post-avatar img {
@@ -240,4 +241,167 @@ body {
     padding: 10px 0;
     border-bottom: 1px solid #eee;
     font-size: 14px;
+}
+
+/* ==========================================
+   5. تنسيقات واجهة الفيسبوك الكاملة (تطبق فقط عند وجود class="fb-body")
+   ========================================== */
+.fb-body {
+    background-color: #f0f2f5 !important;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 0 !important;
+}
+
+.fb-navbar {
+    height: 56px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.fb-nav-right { display: flex; align-items: center; gap: 8px; }
+.fb-logo { font-size: 24px; font-weight: bold; color: #1877f2; }
+.fb-search input {
+    background: #f0f2f5;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 50px;
+    outline: none;
+}
+
+.fb-nav-center { display: flex; gap: 10px; }
+.nav-tab {
+    padding: 10px 25px;
+    font-size: 20px;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+}
+.nav-tab.active { border-bottom-color: #1877f2; }
+
+.fb-nav-left { display: flex; align-items: center; gap: 8px; }
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    background: #e4e6eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+.badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #e41e3f;
+    color: white;
+    font-size: 11px;
+    padding: 2px 5px;
+    border-radius: 10px;
+}
+
+.fb-main-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr 340px;
+    gap: 16px;
+    max-width: 1380px;
+    margin: 16px auto;
+    padding: 0 16px;
+}
+
+.fb-sidebar-right, .fb-sidebar-left {
+    position: sticky;
+    top: 72px;
+    height: calc(100vh - 88px);
+    overflow-y: auto;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: right;
+}
+.menu-item:hover { background: #e4e6eb; }
+
+.avatar-sm { width: 36px; height: 36px; border-radius: 50%; }
+.avatar-xs { width: 32px; height: 32px; border-radius: 50%; }
+
+.fb-feed { max-width: 680px; margin: 0 auto; width: 100%; }
+
+.create-post-card, .section-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    text-align: right;
+}
+
+.create-post-top { display: flex; gap: 8px; align-items: center; }
+.post-input-btn {
+    background: #f0f2f5;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 16px;
+    width: 100%;
+    outline: none;
+}
+
+.create-post-actions { display: flex; justify-content: space-around; padding-top: 8px; }
+.post-option { background: none; border: none; cursor: pointer; font-size: 14px; color: #65676b; }
+
+.post-info { display: flex; flex-direction: column; text-align: right; }
+.author-name { font-weight: bold; font-size: 15px; }
+.post-meta { font-size: 12px; color: #65676b; }
+.more-dots { position: absolute; left: 0; cursor: pointer; color: #65676b; }
+
+.post-content { margin: 12px 0; font-size: 15px; color: #050505; text-align: right; }
+.post-image-container img { width: 100%; border-radius: 6px; }
+
+.post-stats {
+    display: flex;
+    justify-content: space-between;
+    color: #65676b;
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid #ced0d4;
+}
+
+.comment-input-box { display: flex; gap: 8px; margin-top: 10px; align-items: center; }
+.comment-field {
+    background: #f0f2f5;
+    border-radius: 18px;
+    display: flex;
+    flex: 1;
+    padding: 6px 12px;
+}
+.comment-field input { background: none; border: none; outline: none; width: 100%; }
+
+.stories-list { display: flex; gap: 8px; margin-top: 10px; }
+.story-item {
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.story-bg { width: 100%; height: 100%; object-fit: cover; }
+.story-user { position: absolute; bottom: 8px; right: 8px; color: white; font-size: 12px; font-weight: bold; }
+
+@media (max-width: 900px) {
+    .fb-main-layout { grid-template-columns: 1fr; }
+    .fb-sidebar-right, .fb-sidebar-left { display: none; }
 }
