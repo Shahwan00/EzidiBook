@@ -331,3 +331,25 @@ button:hover {
 }
 
 
+/* زر حذف المنشور */
+.post-header {
+    position: relative;
+}
+
+.delete-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #ffebee;
+    color: #c62828;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    background: #ffcdd2;
+}
