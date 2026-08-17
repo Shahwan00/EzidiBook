@@ -1,4 +1,4 @@
-let userImageData = ""; // متغير لحفظ نص الصورة
+let userImageData = "";
 
 document.addEventListener("DOMContentLoaded", function () {
     let photoInput = document.getElementById("photo");
@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 let preview = document.getElementById("preview");
                 let plus = document.getElementById("plus");
                 
-                // تحويل الصورة إلى Base64 للحفظ
                 const reader = new FileReader();
                 reader.onload = function (e) {
                     userImageData = e.target.result;
@@ -49,7 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let registerBtn = document.getElementById("register");
     if (registerBtn) {
-        registerBtn.onclick = function () {
+        registerBtn.onclick = function (e) {
+            e.preventDefault(); // منع الإرسال الافتراضي للنموذج
+
             let photo = document.getElementById("photo").files.length;
             let name = document.getElementById("fullnameInput").value.trim();
             let email = document.querySelector('input[type="email"]').value.trim();
@@ -90,10 +91,8 @@ document.addEventListener("DOMContentLoaded", function () {
             let level = document.getElementById("level").value;
             if (level == "مستوى اللغة") { alert("الرجاء اختيار مستوى اللغة"); return; }
 
-            // حفظ الصورة المترجمة إلى نص
-            localStorage.setItem("userAvatar", userImageData);
-
             // حفظ كافة البيانات
+            localStorage.setItem("userAvatar", userImageData);
             localStorage.setItem("fullname", name);
             localStorage.setItem("birth", birth);
             localStorage.setItem("zodiac", document.getElementById("zodiac").value);
@@ -106,8 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("language", selectedLangs.join(", "));
             localStorage.setItem("level", level);
 
-            // التوجيه إلى الصفحة الرئيسية
-            window.location.href = "home.html";
+            // توجيه إجباري للصفحة الرئيسية
+            window.location.replace("home.html");
         };
     }
 });
