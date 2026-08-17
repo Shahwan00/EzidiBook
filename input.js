@@ -12,9 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 const reader = new FileReader();
                 reader.onload = function (e) {
                     userImageData = e.target.result;
-                    preview.src = userImageData;
-                    preview.style.display = "block";
-                    plus.style.display = "none";
+                    if(preview) {
+                        preview.src = userImageData;
+                        preview.style.display = "block";
+                    }
+                    if(plus) plus.style.display = "none";
                 };
                 reader.readAsDataURL(file);
             }
@@ -42,7 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
             else if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) zodiac = "الدلو";
             else zodiac = "الحوت";
 
-            document.getElementById("zodiac").value = zodiac;
+            let zodiacInput = document.getElementById("zodiac");
+            if(zodiacInput) zodiacInput.value = zodiac;
         };
     }
 
@@ -51,57 +54,76 @@ document.addEventListener("DOMContentLoaded", function () {
         registerBtn.onclick = function (e) {
             e.preventDefault();
 
-            let photo = document.getElementById("photo").files.length;
-            let name = document.getElementById("fullnameInput").value.trim();
-            let email = document.querySelector('input[type="email"]').value.trim();
-            let pass = document.querySelectorAll('input[type="password"]')[0].value;
-            let pass2 = document.querySelectorAll('input[type="password"]')[1].value;
+            // 1. قراءة البيانات بطريقة آمنة لمنع تعطل الكود
+            let photoEl = document.getElementById("photo");
+            let photo = (photoEl && photoEl.files) ? photoEl.files.length : 0;
 
-            // نمط التحقق من صحة البريد الإلكتروني
-            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            let nameEl = document.getElementById("fullnameInput");
+            let name = nameEl ? nameEl.value.trim() : "";
 
-            if (photo == 0) { alert("الرجاء اختيار صورة شخصية"); return; }
-            if (name == "") { alert("الرجاء إدخال الاسم الثلاثي"); return; }
-            if (email == "") { alert("الرجاء إدخال البريد الإلكتروني"); return; }
-            if (!emailPattern.test(email)) { alert("الرجاء إدخال بريد إلكتروني صحيح (مثال: name@example.com)"); return; }
-            if (pass == "") { alert("الرجاء إدخال كلمة المرور"); return; }
-            if (pass2 == "") { alert("الرجاء تأكيد كلمة المرور"); return; }
-            if (pass != pass2) { alert("كلمتا المرور غير متطابقتين"); return; }
+            let emailEl = document.querySelector('input[type="email"]');
+            let email = emailEl ? emailEl.value.trim() : "";
 
-            let birth = document.getElementById("birth").value;
-            if (birth == "") { alert("الرجاء اختيار تاريخ الميلاد"); return; }
+            let passInputs = document.querySelectorAll('input[type="password"]');
+            let pass = passInputs.length > 0 ? passInputs[0].value : "";
+            let pass2 = passInputs.length > 1 ? passInputs[1].value : "";
 
-            let social = document.getElementById("social").value;
-            if (social == "اختر الحالة الاجتماعية") { alert("الرجاء اختيار الحالة الاجتماعية"); return; }
+            let birthEl = document.getElementById("birth");
+            let birth = birthEl ? birthEl.value : "";
 
-            let gender = document.getElementById("gender").value;
-            if (gender == "⚥اختر الجنس") { alert("الرجاء اختيار الجنس"); return; }
+            let socialEl = document.getElementById("social");
+            let social = socialEl ? socialEl.value : "";
 
-            let ezidiClass = document.getElementById("ezidiClass").value;
-            if (ezidiClass == "هل حضرتك من أي طبقة اجتماعية إيزيدية؟") { alert("الرجاء اختيار الطبقة الاجتماعية الإيزيدية"); return; }
+            let genderEl = document.getElementById("gender");
+            let gender = genderEl ? genderEl.value : "";
 
-            let country = document.getElementById("country").value;
-            if (country == "اختر الدولة") { alert("الرجاء اختيار الدولة"); return; }
+            let ezidiEl = document.getElementById("ezidiClass");
+            let ezidiClass = ezidiEl ? ezidiEl.value : "";
 
-            let region = document.getElementById("region").value.trim();
-            if (region == "") { alert("الرجاء إدخال المنطقة"); return; }
+            let countryEl = document.getElementById("country");
+            let country = countryEl ? countryEl.value : "";
 
-            let job = document.getElementById("job").value.trim();
-            if (job == "") { alert("الرجاء إدخال المهنة"); return; }
+            let regionEl = document.getElementById("region");
+            let region = regionEl ? regionEl.value.trim() : "";
+
+            let jobEl = document.getElementById("job");
+            let job = jobEl ? jobEl.value.trim() : "";
 
             let selectedLangs = Array.from(document.querySelectorAll('input[name="lang"]:checked')).map(cb => cb.value);
+
+            let levelEl = document.getElementById("level");
+            let level = levelEl ? levelEl.value : "";
+
+            let zodiacEl = document.getElementById("zodiac");
+            let zodiacVal = zodiacEl ? zodiacEl.value : "";
+
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            // 2. التحقق من الحقول
+            if (photo === 0) { alert("الرجاء اختيار صورة شخصية"); return; }
+            if (name === "") { alert("الرجاء إدخال الاسم الثلاثي"); return; }
+            if (email === "") { alert("الرجاء إدخال البريد الإلكتروني"); return; }
+            if (!emailPattern.test(email)) { alert("الرجاء إدخال بريد إلكتروني صحيح"); return; }
+            if (pass === "") { alert("الرجاء إدخال كلمة المرور"); return; }
+            if (pass2 === "") { alert("الرجاء تأكيد كلمة المرور"); return; }
+            if (pass !== pass2) { alert("كلمتا المرور غير متطابقتين"); return; }
+            if (birth === "") { alert("الرجاء اختيار تاريخ الميلاد"); return; }
+            if (social === "اختر الحالة الاجتماعية" || social === "") { alert("الرجاء اختيار الحالة الاجتماعية"); return; }
+            if (gender === "⚥اختر الجنس" || gender === "") { alert("الرجاء اختيار الجنس"); return; }
+            if (ezidiClass === "هل حضرتك من أي طبقة اجتماعية إيزيدية؟" || ezidiClass === "") { alert("الرجاء اختيار الطبقة الاجتماعية الإيزيدية"); return; }
+            if (country === "اختر الدولة" || country === "") { alert("الرجاء اختيار الدولة"); return; }
+            if (region === "") { alert("الرجاء إدخال المنطقة"); return; }
+            if (job === "") { alert("الرجاء إدخال المهنة"); return; }
             if (selectedLangs.length === 0) { alert("الرجاء اختيار لغة واحدة على الأقل"); return; }
+            if (level === "مستوى اللغة" || level === "") { alert("الرجاء اختيار مستوى اللغة"); return; }
 
-            let level = document.getElementById("level").value;
-            if (level == "مستوى اللغة") { alert("الرجاء اختيار مستوى اللغة"); return; }
-
-            // حفظ البيانات وحالة الدخول
+            // 3. حفظ البيانات بنجاح
             localStorage.setItem("userAvatar", userImageData);
             localStorage.setItem("fullname", name);
             localStorage.setItem("email", email);
             localStorage.setItem("password", pass);
             localStorage.setItem("birth", birth);
-            localStorage.setItem("zodiac", document.getElementById("zodiac").value);
+            localStorage.setItem("zodiac", zodiacVal);
             localStorage.setItem("social", social);
             localStorage.setItem("gender", gender);
             localStorage.setItem("ezidiClass", ezidiClass);
@@ -110,8 +132,8 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("job", job);
             localStorage.setItem("language", selectedLangs.join(", "));
             localStorage.setItem("level", level);
+            
             localStorage.setItem("isLoggedIn", "true");
-
             window.location.replace("home.html");
         };
     }
