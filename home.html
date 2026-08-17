@@ -6,68 +6,99 @@
 <title>DTMD🌿</title>
 
 <style>
-body{
-    margin:0;
-    background:#f5f5f5;
-    font-family:Tahoma,sans-serif;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tahoma, sans-serif;
 }
 
-.container{
-    width:90%;
-    max-width:420px;
-    margin:40px auto;
-    background:#fff;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 0 10px rgba(0,0,0,.15);
+body {
+    background: #f5f5f5;
+    padding-bottom: 70px; /* مساحة للشريط السفلي */
 }
 
-h2{
-    text-align:center;
-    color:#0a9b32;
+/* الهيدر العلوي */
+.top-bar {
+    background: #0a9b32;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-p{
-    text-align:center;
-    color:#555;
-    margin-bottom:30px;
+.top-bar .logo {
+    font-size: 22px;
+    font-weight: bold;
 }
 
-#start{
-    width:100%;
-    padding:14px;
-    background:#0a9b32;
-    color:#fff;
-    border:none;
-    border-radius:10px;
-    font-size:18px;
-    cursor:pointer;
+.top-bar .bell {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* الشريط السفلي التنقلي */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #9ac5f4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* الزر الأخضر المضلل كما بالصورة */
+.nav-btn.active {
+    background: #0a9b32;
+    color: white;
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="container">
-
-<h2>مرحباً بك في 🌿DTMD</h2>
-
-<p>تم إنشاء الحساب بنجاح</p>
-
-<button id="start">ابدأ</button>
-
+<!-- شريط العنوان العلوي -->
+<div class="top-bar">
+    <div class="bell">🔔</div>
+    <div class="logo">DTMD🌿</div>
 </div>
 
-</body>
-</html>
+<!-- محتوى الصفحة الرئيسية -->
+<div style="padding: 20px; text-align: center;">
+    <h3>مرحباً بك في الواجهة الرئيسية</h3>
 </div>
 
-<script>
-document.getElementById("start").onclick = function () {
-    window.location.href = "main.html";
-};
-</script>
+<!-- الشريط السفلي بعد استبدال أيقونة اليدين بأيقونة الملف الشخصي -->
+<div class="bottom-nav">
+    <!-- أيقونة الملف الشخصي داخل الدائرة الخضراء بدلاً من اليدين -->
+    <button class="nav-btn active" onclick="window.location.href='profile.html'">
+        👤
+    </button>
+    
+    <button class="nav-btn">🎮</button>
+    <button class="nav-btn">🔍</button>
+    <button class="nav-btn">🎬</button>
+    
+    <button class="nav-btn">💚</button>
+</div>
 
 </body>
 </html>
