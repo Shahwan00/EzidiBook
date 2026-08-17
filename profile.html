@@ -1,472 +1,160 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>DTMD | Profile</title>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Tahoma,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Tahoma, sans-serif;
 }
 
 body{
-
-background:#f5f7fa;
-
-overflow-x:hidden;
-
+    background:#f5f5f5;
 }
 
-/* صورة الغلاف */
-
-.cover{
-
-width:100%;
-
-height:280px;
-
-background:linear-gradient(
--45deg,
-#0066ff,
-#00ff66,
-#0066ff,
-#00ff66
-);
-
-background-size:400% 400%;
-
-animation:coverMove 10s linear infinite;
-
-border-bottom-left-radius:35px;
-
-border-bottom-right-radius:35px;
-
+/* الهيدر العلوي */
+.header-bg {
+    height: 140px;
+    background: linear-gradient(to bottom, #00e676, #00b0ff);
 }
 
-@keyframes coverMove{
-
-0%{background-position:0% 50%;}
-
-50%{background-position:100% 50%;}
-
-100%{background-position:0% 50%;}
-
+.profile-card {
+    width: 90%;
+    max-width: 400px;
+    margin: -50px auto 20px auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
+.avatar-container {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    background: #e0e0e0;
+    overflow: hidden;
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.username-tag {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* قائمة عرض البيانات */
+.info-list {
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-top: 15px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.03);
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-item .value {
+    color: #2196F3;
+    font-weight: bold;
+}
+
+.info-item .label {
+    color: #555;
+}
+
+/* صندوق المنشورات */
+.posts-box {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto 30px auto;
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+}
 </style>
-
 </head>
 
 <body>
 
-<div class="cover"></div>
-
-</body>
-
-</html>
-<div class="profile-section">
-
-<div class="profile-ring">
-
-<img id="profilePhoto"
-src="https://via.placeholder.com/220">
-
-<button id="changePhoto">
-📷
-</button>
-
-<input
-type="file"
-id="profileInput"
-accept="image/*"
-hidden>
-
-</div>
-
-</div>
-
-<style>
-
-.profile-section{
-
-display:flex;
-
-justify-content:center;
-
-margin-top:-90px;
-
-}
-
-.profile-ring{
-
-position:relative;
-
-width:230px;
-
-height:230px;
-
-padding:6px;
-
-border-radius:50%;
-
-background:linear-gradient(
-45deg,
-#00ff66,
-#0066ff,
-#00ff66,
-#0066ff
-);
-
-background-size:300% 300%;
-
-animation:ringMove 6s linear infinite;
-
-}
-
-@keyframes ringMove{
-
-0%{background-position:0% 50%;}
-
-50%{background-position:100% 50%;}
-
-100%{background-position:0% 50%;}
-
-}
-
-#profilePhoto{
-
-width:100%;
-
-height:100%;
-
-border-radius:50%;
-
-object-fit:cover;
-
-background:white;
-
-cursor:pointer;
-
-}
-
-#changePhoto{
-
-position:absolute;
-
-bottom:10px;
-
-right:10px;
-
-width:46px;
-
-height:46px;
-
-border:none;
-
-border-radius:50%;
-
-background:#00c853;
-
-color:white;
-
-font-size:22px;
-
-cursor:pointer;
-
-}
-
-</style>
-<div class="profile-info">
-
-<h1 id="fullname">
-الاسم الثلاثي
-</h1>
-
-<p id="username">
-@username
-</p>
-
-</div>
-
-<style>
-
-.profile-info{
-
-text-align:center;
-
-margin-top:22px;
-
-}
-
-.profile-info h1{
-
-font-size:34px;
-
-font-weight:bold;
-
-color:#202124;
-
-}
-
-.profile-info p{
-
-margin-top:8px;
-
-font-size:20px;
-
-color:#6b7280;
-
-letter-spacing:1px;
-
-}
-
-</style>
-<div class="info-card">
-
-<div class="info-row">
-<span>🎂 تاريخ الميلاد</span>
-<div id="birth">--</div>
-</div>
-
-<div class="info-row">
-<span>♈ البرج</span>
-<div id="zodiac">--</div>
-</div>
-
-<div class="info-row">
-<span>👫 الجنس</span>
-<div id="gender">--</div>
-</div>
-
-<div class="info-row">
-  <span>💍 الحالة الاجتماعية</span>
-  <div id="maritalStatus">---</div>
-</div>
-
-<div class="info-row">
-  <span>☘️ الطبقة الإيزيدية</span>
-  <div id="yazidiClass">---</div>
-</div>
-
-<div class="info-row">
-<span>🌍 الدولة</span>
-<div id="country">--</div>
-</div>
-
-<div class="info-row">
-<span>📍 المنطقة</span>
-<div id="region">--</div>
-</div>
-
-<div class="info-row">
-<span>💼 المهنة</span>
-<div id="job">--</div>
-</div>
-
-<div class="info-row">
-<span>🗣️ اللغة</span>
-<div id="language">--</div>
-</div>
-
-</div>
-
-<style>
-
-.info-card{
-
-width:92%;
-
-max-width:700px;
-
-margin:35px auto;
-
-background:#ffffff;
-
-border-radius:24px;
-
-overflow:hidden;
-
-box-shadow:0 10px 35px rgba(0,0,0,.12);
-
-}
-
-.info-row{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:20px;
-
-border-bottom:1px solid #ececec;
-
-font-size:19px;
-
-}
-
-.info-row:last-child{
-
-border-bottom:none;
-
-}
-
-.info-row span{
-
-font-weight:bold;
-
-color:#333;
-
-}
-
-.info-row div{
-
-font-weight:bold;
-
-color:#0077ff;
-
-}
-
-</style>
-<div class="profile-posts">
-
-    <h2 onclick="location.href='create-post.html'" style="cursor:pointer;">
-    📷 المنشورات
-</h2>
-
-    <div id="postsContainer">
-
-        <div class="empty-posts">
-            لا توجد منشورات حتى الآن
-        </div>
-
+<div class="header-bg"></div>
+
+<div class="profile-card">
+    <!-- الصورة الشخصية بدون أيقونة الكاميرا -->
+    <div class="avatar-container">
+        <img id="profileImg" src="https://via.placeholder.com/90" alt="Profile">
     </div>
 
+    <div class="user-name" id="fullname">الاسم الثلاثي</div>
+    <div class="username-tag" id="username">@username</div>
+
+    <!-- جدول عرض البيانات المحفوظة -->
+    <div class="info-list">
+        <div class="info-item"><span class="value" id="birth">--</span><span class="label">تاريخ الميلاد 🎂</span></div>
+        <div class="info-item"><span class="value" id="zodiac">--</span><span class="label">البرج ♈</span></div>
+        <div class="info-item"><span class="value" id="gender">--</span><span class="label">الجنس 👫</span></div>
+        <div class="info-item"><span class="value" id="social">--</span><span class="label">الحالة الاجتماعية 💍</span></div>
+        <div class="info-item"><span class="value" id="ezidiClass">--</span><span class="label">الطبقة الإيزيدية ☘️</span></div>
+        <div class="info-item"><span class="value" id="country">--</span><span class="label">الدولة 🌍</span></div>
+        <div class="info-item"><span class="value" id="region">--</span><span class="label">المنطقة 📍</span></div>
+        <div class="info-item"><span class="value" id="job">--</span><span class="label">المهنة 💼</span></div>
+        <div class="info-item"><span class="value" id="language">--</span><span class="label">اللغة 🗣️</span></div>
+    </div>
 </div>
-<style>
 
-.profile-posts{
+<div class="posts-box">
+    لا توجد منشورات حتى الآن
+</div>
 
-width:92%;
-
-max-width:800px;
-
-margin:30px auto;
-
-}
-
-.profile-posts h2{
-
-font-size:28px;
-
-font-weight:bold;
-
-margin-bottom:20px;
-
-color:#222;
-
-}
-
-.empty-posts{
-
-background:#ffffff;
-
-border-radius:22px;
-
-padding:45px;
-
-text-align:center;
-
-font-size:22px;
-
-color:#888;
-
-box-shadow:0 10px 25px rgba(0,0,0,.10);
-
-}
-
-/* شكل المنشور */
-
-.post-card{
-
-background:#ffffff;
-
-border-radius:22px;
-
-overflow:hidden;
-
-margin-bottom:25px;
-
-box-shadow:0 10px 25px rgba(0,0,0,.10);
-
-}
-
-.post-image{
-
-width:100%;
-
-display:block;
-
-}
-
-.post-text{
-
-padding:18px;
-
-font-size:20px;
-
-line-height:1.8;
-
-color:#222;
-
-}
-
-.post-date{
-
-padding:0 18px 18px;
-
-font-size:15px;
-
-color:#888;
-
-}
-
-</style>
 <script>
-const postsContainer = document.getElementById("postsContainer");
+// جلب البيانات من الذاكرة وعرضها في العناصر الخاصة بها
+document.getElementById("fullname").innerText = localStorage.getItem("fullname") || "الاسم الثلاثي";
+document.getElementById("username").innerText = "@" + (localStorage.getItem("fullname") ? localStorage.getItem("fullname").replace(/\s+/g, '_') : "username");
+document.getElementById("birth").innerText = localStorage.getItem("birth") || "--";
+document.getElementById("zodiac").innerText = localStorage.getItem("zodiac") || "--";
+document.getElementById("gender").innerText = localStorage.getItem("gender") || "--";
+document.getElementById("social").innerText = localStorage.getItem("social") || "--";
+document.getElementById("ezidiClass").innerText = localStorage.getItem("ezidiClass") || "--";
+document.getElementById("country").innerText = localStorage.getItem("country") || "--";
+document.getElementById("region").innerText = localStorage.getItem("region") || "--";
+document.getElementById("job").innerText = localStorage.getItem("job") || "--";
 
-// قراءة المنشورات المحفوظة
-const posts = JSON.parse(localStorage.getItem("dtmd_posts")) || [];
-
-if (posts.length > 0) {
-
-    postsContainer.innerHTML = "";
-
-    posts.reverse().forEach(post => {
-
-        let card = document.createElement("div");
-        card.className = "post-card";
-
-        card.innerHTML = `
-            ${post.image ? `<img src="${post.image}" class="post-image">` : ""}
-
-            ${post.text ? `<div class="post-text">${post.text}</div>` : ""}
-
-            <div class="post-date">${post.date}</div>
-        `;
-
-        postsContainer.appendChild(card);
-
-    });
-
-}
+let langs = localStorage.getItem("language") || "--";
+let level = localStorage.getItem("level") ? " (" + localStorage.getItem("level") + ")" : "";
+document.getElementById("language").innerText = langs + level;
 </script>
+
+</body>
+</html>
