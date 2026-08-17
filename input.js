@@ -106,7 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("language", selectedLangs.join(", "));
             localStorage.setItem("level", level);
 
-            window.location.href = "profile.html";
+            // التوجيه إلى الصفحة الرئيسية
+            window.location.href = "home.html";
         };
     }
 });
