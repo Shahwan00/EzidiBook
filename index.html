@@ -3,30 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DTMD | الرئيسية</title>
+    <title>DTMD | إنشاء حساب</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- الشريط العلوي -->
-    <div class="top-bar">
-        <span>🌿 DTMD</span>
-        <span>🔔</span>
+    <div class="container">
+        <div class="logo">🌿 DTMD</div>
+        <h2>إنشاء حساب جديد</h2>
+
+        <form id="registerForm">
+            <!-- الصورة الشخصية -->
+            <div style="text-align: center; margin-bottom: 15px;">
+                <label for="photo" style="cursor: pointer; display: inline-block; position: relative;">
+                    <div id="plus" style="width: 80px; height: 80px; border-radius: 50%; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 24px;">+</div>
+                    <img id="preview" src="" style="width: 80px; height: 80px; border-radius: 50%; display: none; object-fit: cover;">
+                </label>
+                <input type="file" id="photo" accept="image/*" style="display: none;">
+            </div>
+
+            <input type="text" id="fullnameInput" placeholder="الاسم الثلاثي">
+            <input type="email" placeholder="البريد الإلكتروني">
+            <input type="password" placeholder="كلمة المرور">
+            <input type="password" placeholder="تأكيد كلمة المرور">
+
+            <label style="display: block; text-align: right; margin-top: 10px; font-size: 14px;">تاريخ الميلاد:</label>
+            <input type="date" id="birth">
+
+            <input type="text" id="zodiac" placeholder="البرج (سيتم تحديده تلقائياً)" readonly>
+
+            <select id="social">
+                <option selected disabled>اختر الحالة الاجتماعية</option>
+                <option value="أعزب/عزباء">أعزب/عزباء</option>
+                <option value="متزوج/ة">متزوج/ة</option>
+            </select>
+
+            <select id="gender">
+                <option selected disabled>⚥اختر الجنس</option>
+                <option value="ذكر">ذكر</option>
+                <option value="أنثى">أنثى</option>
+            </select>
+
+            <select id="ezidiClass">
+                <option selected disabled>هل حضرتك من أي طبقة اجتماعية إيزيدية؟</option>
+                <option value="مريب">مريب</option>
+                <option value="شێخ">شێخ</option>
+                <option value="پێر">پێر</option>
+            </select>
+
+            <select id="country">
+                <option selected disabled>اختر الدولة</option>
+                <option value="العراق">العراق</option>
+                <option value="ألمانيا">ألمانيا</option>
+                <option value="أخرى">أخرى</option>
+            </select>
+
+            <input type="text" id="region" placeholder="المنطقة / المدينة">
+            <input type="text" id="job" placeholder="المهنة">
+
+            <div style="text-align: right; margin: 15px 0;">
+                <label style="display: block; font-size: 14px; margin-bottom: 5px;">اللغات:</label>
+                <label><input type="checkbox" name="lang" value="العربية"> العربية</label>
+                <label><input type="checkbox" name="lang" value="الكردية"> الكردية</label>
+                <label><input type="checkbox" name="lang" value="الألمانية"> الألمانية</label>
+            </div>
+
+            <select id="level">
+                <option selected disabled>مستوى اللغة</option>
+                <option value="مبتدئ">مبتدئ</option>
+                <option value="متوسط">متوسط</option>
+                <option value="متقدم">متقدم</option>
+            </select>
+
+            <button type="submit" id="register">إنشاء الحساب</button>
+        </form>
+
+        <p style="margin-top: 15px; font-size: 14px; text-align: center;">
+            لديك حساب بالفعل؟ <a href="login.html" style="color: #0a9b32; font-weight: bold; text-decoration: none;">تسجيل الدخول</a>
+        </p>
     </div>
 
-    <div class="main-content">
-        <h2>مرحباً بك في الواجهة الرئيسية</h2>
-        <p style="margin-top: 15px; color: #666;">آخر الأخبار والمنشورات تظهر هنا...</p>
-    </div>
-
-    <!-- الشريط السفلي الثابت -->
-    <nav class="bottom-nav">
-        <a href="home.html" class="nav-item active">🏠</a>
-        <a href="#" class="nav-item">🎬</a>
-        <a href="#" class="nav-item">🔍</a>
-        <a href="#" class="nav-item">🎮</a>
-        <a href="profile.html" class="nav-item">👤</a>
-    </nav>
-
+    <script src="input.js"></script>
 </body>
 </html>
