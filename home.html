@@ -15,45 +15,56 @@
     </div>
 
     <div class="main-content">
-        
-        <!-- كارت المنشور -->
-        <div class="post-card">
-            <!-- رأس المنشور: الصورة الشخصية والاسم -->
-            <div class="post-header">
-                <div class="post-avatar">
-                    <img src="https://via.placeholder.com/40" alt="Avatar">
+
+        <!-- صندوق إنشاء منشور جديد -->
+        <div class="create-post-card">
+            <textarea id="postInput" placeholder="بماذا تفكر اليوم؟"></textarea>
+            
+            <div class="preview-area">
+                <img id="imagePreview" style="display:none; width:100%; border-radius:10px; margin-top:10px;">
+                <video id="videoPreview" controls style="display:none; width:100%; border-radius:10px; margin-top:10px;"></video>
+            </div>
+
+            <div class="create-post-actions">
+                <label for="postImage" class="upload-btn">📷 صورة</label>
+                <input type="file" id="postImage" accept="image/*" style="display:none;">
+
+                <label for="postVideo" class="upload-btn">🎥 فيديو</label>
+                <input type="file" id="postVideo" accept="video/*" style="display:none;">
+
+                <button class="publish-btn" onclick="addNewPost()">نشر</button>
+            </div>
+        </div>
+
+        <!-- حاوية المنشورات -->
+        <div id="feedContainer">
+            <!-- كارت منشور تجريبي -->
+            <div class="post-card">
+                <div class="post-header">
+                    <div class="post-avatar">
+                        <img src="https://via.placeholder.com/40" alt="Avatar">
+                    </div>
+                    <div class="post-user-info">
+                        <span class="post-author-name">اسم المستخدم</span>
+                        <span class="post-time">منذ 5 دقائق</span>
+                    </div>
                 </div>
-                <div class="post-user-info">
-                    <span class="post-author-name">اسم المستخدم</span>
-                    <span class="post-time">منذ 5 دقائق</span>
+
+                <div class="post-text">
+                    مرحباً بالجميع! هذا منشور يحتوي على نص وصورة وفيديو تجريبي.
                 </div>
-            </div>
 
-            <!-- نص المنشور -->
-            <div class="post-text">
-                مرحباً بالجميع! هذا منشور يحتوي على نص وصورة وفيديو تجريبي.
-            </div>
+                <div class="post-media">
+                    <img src="https://via.placeholder.com/500x300" alt="صورة المنشور">
+                </div>
 
-            <!-- media: صورة المنشور -->
-            <div class="post-media">
-                <img src="https://via.placeholder.com/500x300" alt="صورة المنشور">
-            </div>
-
-            <!-- media: فيديو المنشور -->
-            <div class="post-media" style="margin-top: 10px;">
-                <video controls style="width: 100%; border-radius: 10px;">
-                    <source src="sample.mp4" type="video/mp4">
-                    متصفحك لا يدعم تشغيل الفيديو.
-                </video>
-            </div>
-
-            <!-- شريط التفاعلات أسفل المنشور -->
-            <div class="post-actions">
-                <button class="action-btn">❤️ <span>إعجاب</span></button>
-                <button class="action-btn">💬 <span>تعليق</span></button>
-                <button class="action-btn">🎙️ <span>صوتي</span></button>
-                <button class="action-btn">🔄 <span>مشاركة</span></button>
-                <button class="action-btn">✈️ <span>إرسال</span></button>
+                <div class="post-actions">
+                    <button class="action-btn">❤️ <span>إعجاب</span></button>
+                    <button class="action-btn">💬 <span>تعليق</span></button>
+                    <button class="action-btn">🎙️ <span>صوتي</span></button>
+                    <button class="action-btn">🔄 <span>مشاركة</span></button>
+                    <button class="action-btn">✈️ <span>إرسال</span></button>
+                </div>
             </div>
         </div>
 
@@ -68,5 +79,6 @@
         <a href="profile.html" class="nav-item">👤</a>
     </nav>
 
+    <script src="home.js"></script>
 </body>
 </html>
