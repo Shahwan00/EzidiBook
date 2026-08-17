@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>DTMD🌿</title>
 
 <style>
@@ -89,7 +88,6 @@ font-size:14px;
 color:#333;
 }
 
-/* تنسيق قائمة اللغات المتعددة */
 .checkbox-group {
 max-height: 150px;
 overflow-y: auto;
@@ -130,7 +128,7 @@ cursor: pointer;
 
 <input type="file" id="photo" accept="image/*" hidden>
 
-<input type="text" placeholder="الاسم الثلاثي">
+<input type="text" id="fullnameInput" placeholder="الاسم الثلاثي">
 
 <input type="email" placeholder="البريد الإلكتروني">
 
@@ -143,19 +141,19 @@ cursor: pointer;
 
 <input type="text" id="zodiac" placeholder="البرج" readonly>
 
-<select>
+<select id="social">
 <option selected disabled>اختر الحالة الاجتماعية</option>
 <option>أعزب</option>
 <option>متزوج</option>
 </select>
 
-<select>
+<select id="gender">
 <option selected disabled>⚥اختر الجنس</option>
 <option>ذكر♂</option>
 <option>أنثى♀</option>
 </select>
 
-<select>
+<select id="ezidiClass">
 <option selected disabled>هل حضرتك من أي طبقة اجتماعية إيزيدية؟</option>
 <option>مريد</option>
 <option>شيخ</option>
@@ -220,153 +218,8 @@ cursor: pointer;
 
 </div>
 
-<script>
-photo.onchange=function(){
-const file=this.files[0];
-if(file){
-preview.src=URL.createObjectURL(file);
-preview.style.display="block";
-plus.style.display="none";
-}
-}
-
-birth.onchange=function(){
-
-let d=new Date(this.value);
-
-let day=d.getDate();
-
-let month=d.getMonth()+1;
-
-let zodiac="";
-
-if((month==3&&day>=21)||(month==4&&day<=19)) zodiac="الحمل";
-else if((month==4&&day>=20)||(month==5&&day<=20)) zodiac="الثور";
-else if((month==5&&day>=21)||(month==6&&day<=20)) zodiac="الجوزاء";
-else if((month==6&&day>=21)||(month==7&&day<=22)) zodiac="السرطان";
-else if((month==7&&day>=23)||(month==8&&day<=22)) zodiac="الأسد";
-else if((month==8&&day>=23)||(month==9&&day<=22)) zodiac="العذراء";
-else if((month==9&&day>=23)||(month==10&&day<=22)) zodiac="الميزان";
-else if((month==10&&day>=23)||(month==11&&day<=21)) zodiac="العقرب";
-else if((month==11&&day>=22)||(month==12&&day<=21)) zodiac="القوس";
-else if((month==12&&day>=22)||(month==1&&day<=19)) zodiac="الجدي";
-else if((month==1&&day>=20)||(month==2&&day<=18)) zodiac="الدلو";
-else zodiac="الحوت";
-
-document.getElementById("zodiac").value=zodiac;
-
-}
-
-document.getElementById("register").onclick = function () {
-
-let photo = document.getElementById("photo").files.length;
-
-let name = document.querySelector('input[type="text"]').value.trim();
-
-let email = document.querySelector('input[type="email"]').value.trim();
-
-let pass = document.querySelectorAll('input[type="password"]')[0].value;
-
-let pass2 = document.querySelectorAll('input[type="password"]')[1].value;
-
-if(photo==0){
-alert("الرجاء اختيار صورة شخصية");
-return;
-}
-
-if(name==""){
-alert("الرجاء إدخال الاسم الثلاثي");
-return;
-}
-
-if(email==""){
-alert("الرجاء إدخال البريد الإلكتروني");
-return;
-}
-
-if(pass==""){
-alert("الرجاء إدخال كلمة المرور");
-return;
-}
-
-if(pass2==""){
-alert("الرجاء تأكيد كلمة المرور");
-return;
-}
-
-if(pass!=pass2){
-alert("كلمتا المرور غير متطابقتين");
-return;
-}
-
-let birth = document.getElementById("birth").value;
-
-if(birth==""){
-    alert("الرجاء اختيار تاريخ الميلاد");
-    return;
-}
-
-let social = document.querySelectorAll("select")[0].value;
-
-if(social=="اختر الحالة الاجتماعية"){
-    alert("الرجاء اختيار الحالة الاجتماعية");
-    return;
-}
-
-let gender = document.querySelectorAll("select")[1].value;
-
-if(gender=="اختر الجنس"){
-    alert("الرجاء اختيار الجنس");
-    return;
-}
-
-let ezidiClass = document.querySelectorAll("select")[2].value;
-
-if(ezidiClass=="هل حضرتك من أي طبقة اجتماعية إيزيدية؟"){
-    alert("الرجاء اختيار الطبقة الاجتماعية الإيزيدية");
-    return;
-}
-
-let country = document.getElementById("country").value;
-
-if(country=="اختر الدولة"){
-    alert("الرجاء اختيار الدولة");
-    return;
-}
-
-let region = document.getElementById("region").value.trim();
-
-if(region==""){
-    alert("الرجاء إدخال المنطقة");
-    return;
-}
-
-let job = document.getElementById("job").value.trim();
-
-if(job==""){
-    alert("الرجاء إدخال المهنة");
-    return;
-}
-
-// التحقق من اللغات المحددة
-let selectedLanguages = Array.from(document.querySelectorAll('input[name="lang"]:checked')).map(cb => cb.value);
-
-if(selectedLanguages.length === 0){
-    alert("الرجاء اختيار لغة واحدة على الأقل");
-    return;
-}
-
-let level = document.getElementById("level").value;
-
-if(level=="مستوى اللغة"){
-    alert("الرجاء اختيار مستوى اللغة");
-    return;
-}
-
-window.location.href = "home.html";
-
-}
-</script>
+<!-- استدعاء ملف الجافاسكربت الخاص بحفظ وإدخال البيانات -->
+<script src="input.js"></script>
 
 </body>
 </html>
