@@ -223,3 +223,88 @@ button:hover {
     transform: scale(.98);
     background: #d0d0d0;
 }
+
+/* تصميم المنشور */
+.post-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px auto;
+    max-width: 500px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: right;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.post-avatar img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-author-name {
+    font-weight: bold;
+    font-size: 15px;
+    color: #222;
+}
+
+.post-time {
+    font-size: 11px;
+    color: #888;
+}
+
+.post-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.post-media img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* شريط أزرار التفاعل أسفل المنشور */
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    margin-top: 12px;
+    padding-top: 8px;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px;
+    cursor: pointer;
+    margin-top: 0;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.action-btn:hover {
+    background: #f0f2f5;
+}
+
+
