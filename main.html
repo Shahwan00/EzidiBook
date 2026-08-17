@@ -230,11 +230,11 @@ cursor:pointer;
 let post = JSON.parse(localStorage.getItem("lastPost"));
 
 if (post) {
-    document.body.innerHTML += 
+    document.body.innerHTML += `
         <div style="background:white;padding:15px;margin:15px;border-radius:15px;">
             <p>${post.text}</p>
-            ${post.image && post.image !== window.location.href ? <img src="${post.image}" style="width:100%;border-radius:10px;"> : ""}
+            ${post.image && post.image !== window.location.href ? `<img src="${post.image}" style="width:100%;border-radius:10px;">` : ""}
         </div>
-    ;
+    `;
 }
 </script>
