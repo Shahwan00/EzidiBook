@@ -11,7 +11,10 @@
     <!-- الشريط العلوي -->
     <div class="top-bar">
         <span>🌿 DTMD</span>
-        <span>🔔</span>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <button onclick="logout()" style="background:none; border:none; color:white; font-size:15px; cursor:pointer; font-weight:bold;">🚪 خروج</button>
+            <span>🔔</span>
+        </div>
     </div>
 
     <div class="main-content">
@@ -37,36 +40,7 @@
         </div>
 
         <!-- حاوية المنشورات -->
-        <div id="feedContainer">
-            <!-- كارت منشور تجريبي -->
-            <div class="post-card">
-                <div class="post-header">
-                    <div class="post-avatar">
-                        <img src="https://via.placeholder.com/40" alt="Avatar">
-                    </div>
-                    <div class="post-user-info">
-                        <span class="post-author-name">اسم المستخدم</span>
-                        <span class="post-time">منذ 5 دقائق</span>
-                    </div>
-                </div>
-
-                <div class="post-text">
-                    مرحباً بالجميع! هذا منشور يحتوي على نص وصورة وفيديو تجريبي.
-                </div>
-
-                <div class="post-media">
-                    <img src="https://via.placeholder.com/500x300" alt="صورة المنشور">
-                </div>
-
-                <div class="post-actions">
-                    <button class="action-btn">❤️ <span>إعجاب</span></button>
-                    <button class="action-btn">💬 <span>تعليق</span></button>
-                    <button class="action-btn">🎙️ <span>صوتي</span></button>
-                    <button class="action-btn">🔄 <span>مشاركة</span></button>
-                    <button class="action-btn">✈️ <span>إرسال</span></button>
-                </div>
-            </div>
-        </div>
+        <div id="feedContainer"></div>
 
     </div>
 
