@@ -57,9 +57,13 @@ document.addEventListener("DOMContentLoaded", function () {
             let pass = document.querySelectorAll('input[type="password"]')[0].value;
             let pass2 = document.querySelectorAll('input[type="password"]')[1].value;
 
+            // نمط التحقق من صحة البريد الإلكتروني
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
             if (photo == 0) { alert("الرجاء اختيار صورة شخصية"); return; }
             if (name == "") { alert("الرجاء إدخال الاسم الثلاثي"); return; }
             if (email == "") { alert("الرجاء إدخال البريد الإلكتروني"); return; }
+            if (!emailPattern.test(email)) { alert("الرجاء إدخال بريد إلكتروني صحيح (مثال: name@example.com)"); return; }
             if (pass == "") { alert("الرجاء إدخال كلمة المرور"); return; }
             if (pass2 == "") { alert("الرجاء تأكيد كلمة المرور"); return; }
             if (pass != pass2) { alert("كلمتا المرور غير متطابقتين"); return; }
