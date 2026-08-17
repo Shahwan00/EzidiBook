@@ -1,97 +1,32 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DTMD | الرئيسية</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Tahoma, sans-serif;
-}
-
-body{
-    background:#f5f5f5;
-    padding-bottom: 70px; /* مساحة متوفرة لشريط التنقل السفلي */
-}
-
-/* الشريط العلوي */
-.top-bar {
-    background: #0a9b32;
-    color: #fff;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.main-content {
-    padding: 20px;
-    text-align: center;
-}
-
-/* شريط التنقل السفلي الثابت (Bottom Navigation) */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: #90caf9;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-}
-
-.nav-item {
-    text-decoration: none;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    transition: 0.2s;
-}
-
-/* تمييز الصفحة النشطة */
-.nav-item.active {
-    background: #0a9b32;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTMD | الرئيسية</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="top-bar">
-    <span>🌿 DTMD</span>
-    <span>🔔</span>
-</div>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <span>🌿 DTMD</span>
+        <span>🔔</span>
+    </div>
 
-<div class="main-content">
-    <h2>مرحباً بك في الواجهة الرئيسية</h2>
-    <p style="margin-top: 15px; color: #666;">آخر الأخبار والمنشورات تظهر هنا...</p>
-</div>
+    <div class="main-content">
+        <h2>مرحباً بك في الواجهة الرئيسية</h2>
+        <p style="margin-top: 15px; color: #666;">آخر الأخبار والمنشورات تظهر هنا...</p>
+    </div>
 
-<!-- الشريط السفلي الثابت -->
-<nav class="bottom-nav">
-    <a href="home.html" class="nav-item active">🏠</a>
-    <a href="#" class="nav-item">🎬</a>
-    <a href="#" class="nav-item">🔍</a>
-    <a href="#" class="nav-item">🎮</a>
-    <a href="profile.html" class="nav-item">👤</a>
-</nav>
+    <!-- الشريط السفلي الثابت -->
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item active">🏠</a>
+        <a href="#" class="nav-item">🎬</a>
+        <a href="#" class="nav-item">🔍</a>
+        <a href="#" class="nav-item">🎮</a>
+        <a href="profile.html" class="nav-item">👤</a>
+    </nav>
 
 </body>
 </html>
