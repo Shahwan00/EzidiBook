@@ -88,6 +88,32 @@ margin-top:15px;
 font-size:14px;
 color:#333;
 }
+
+/* تنسيق قائمة اللغات المتعددة */
+.checkbox-group {
+max-height: 150px;
+overflow-y: auto;
+border: 1px solid #ccc;
+border-radius: 10px;
+padding: 10px;
+margin-top: 10px;
+background: #fafafa;
+}
+
+.checkbox-group label {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-top: 8px;
+font-size: 15px;
+cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+width: auto;
+margin-top: 0;
+cursor: pointer;
+}
 </style>
 </head>
 
@@ -165,23 +191,22 @@ color:#333;
 <label>اللغة الام</label>
 <input type="text" value="𐺩𐺏𐺨𐺋𐺨" readonly>
 
-<label>اللغات التي تتحدث بها</label>
+<label>اللغات التي تتحدث بها (يمكنك اختيار أكثر من لغة):</label>
 
-<select id="language">
-<option selected disabled>اختر لغة</option>
-<option>العربية</option>
-<option>Hindi</option>
-<option>Deutsch</option>
-<option>English</option>
-<option>Español</option>
-<option>Français</option>
-<option>Türkçe</option>
-<option>Русский</option>
-<option>Italiano</option>
-<option>Português</option>
-<option>Nederlands</option>
-<option>Svenska</option>
-</select>
+<div class="checkbox-group" id="languages">
+<label><input type="checkbox" name="lang" value="العربية"> العربية</label>
+<label><input type="checkbox" name="lang" value="Hindi"> Hindi</label>
+<label><input type="checkbox" name="lang" value="Deutsch"> Deutsch</label>
+<label><input type="checkbox" name="lang" value="English"> English</label>
+<label><input type="checkbox" name="lang" value="Español"> Español</label>
+<label><input type="checkbox" name="lang" value="Français"> Français</label>
+<label><input type="checkbox" name="lang" value="Türkçe"> Türkçe</label>
+<label><input type="checkbox" name="lang" value="Русский"> Русский</label>
+<label><input type="checkbox" name="lang" value="Italiano"> Italiano</label>
+<label><input type="checkbox" name="lang" value="Português"> Português</label>
+<label><input type="checkbox" name="lang" value="Nederlands"> Nederlands</label>
+<label><input type="checkbox" name="lang" value="Svenska"> Svenska</label>
+</div>
 
 <select id="level">
 <option selected disabled>مستوى اللغة</option>
@@ -323,10 +348,11 @@ if(job==""){
     return;
 }
 
-let language = document.getElementById("language").value;
+// التحقق من اللغات المحددة
+let selectedLanguages = Array.from(document.querySelectorAll('input[name="lang"]:checked')).map(cb => cb.value);
 
-if(language=="" || language=="اختر لغة"){
-    alert("الرجاء اختيار لغة");
+if(selectedLanguages.length === 0){
+    alert("الرجاء اختيار لغة واحدة على الأقل");
     return;
 }
 
