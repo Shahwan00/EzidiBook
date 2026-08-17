@@ -1,199 +1,472 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الملف الشخصي</title>
+
+<title>DTMD | Profile</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Tahoma, sans-serif;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,sans-serif;
 }
 
-body {
-    background: #f5f7fa;
-    padding-bottom: 80px;
+body{
+
+background:#f5f7fa;
+
+overflow-x:hidden;
+
 }
 
-/* الهيدر والغلاف */
-.header-bg {
-    height: 180px;
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
+/* صورة الغلاف */
+
+.cover{
+
+width:100%;
+
+height:280px;
+
+background:linear-gradient(
+-45deg,
+#0066ff,
+#00ff66,
+#0066ff,
+#00ff66
+);
+
+background-size:400% 400%;
+
+animation:coverMove 10s linear infinite;
+
+border-bottom-left-radius:35px;
+
+border-bottom-right-radius:35px;
+
 }
 
-/* صورة البروفايل */
-.profile-avatar-container {
-    text-align: center;
-    margin-top: -60px;
+@keyframes coverMove{
+
+0%{background-position:0% 50%;}
+
+50%{background-position:100% 50%;}
+
+100%{background-position:0% 50%;}
+
 }
 
-.profile-avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 4px solid #fff;
-    object-fit: cover;
-    background: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-.user-name {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 22px;
-    color: #222;
-}
-
-.user-handle {
-    text-align: center;
-    color: #777;
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-/* كارت المعلومات */
-.info-card {
-    width: 90%;
-    max-width: 600px;
-    margin: auto;
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    overflow: hidden;
-}
-
-.item {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 20px;
-    border-bottom: 1px solid #eee;
-    font-size: 16px;
-}
-
-.item:last-child {
-    border-bottom: none;
-}
-
-.item span {
-    color: #555;
-}
-
-.item b {
-    color: #00a651;
-}
-
-/* المنشورات */
-.posts-title {
-    text-align: center;
-    margin: 30px 0 15px;
-    font-size: 20px;
-    color: #333;
-}
-
-.posts-container {
-    width: 90%;
-    max-width: 600px;
-    margin: auto;
-}
-
-.post-card {
-    background: #ffffff;
-    border-radius: 18px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.08);
-}
-
-.post-image {
-    width: 100%;
-    display: block;
-}
-
-.post-text {
-    padding: 15px;
-    font-size: 17px;
-    line-height: 1.6;
-    color: #222;
-}
-
-.post-date {
-    padding: 0 15px 15px;
-    font-size: 13px;
-    color: #888;
-}
 </style>
+
 </head>
 
 <body>
 
-<div class="header-bg"></div>
+<div class="cover"></div>
 
-<!-- تم إزالة عنصر الكاميرا 📷 نهائياً من هنا -->
-<div class="profile-avatar-container">
-    <img id="profileImage" class="profile-avatar" src="https://via.placeholder.com/120" alt="Profile">
+</body>
+
+</html>
+<div class="profile-section">
+
+<div class="profile-ring">
+
+<img id="profilePhoto"
+src="https://via.placeholder.com/220">
+
+<button id="changePhoto">
+📷
+</button>
+
+<input
+type="file"
+id="profileInput"
+accept="image/*"
+hidden>
+
 </div>
 
-<h2 class="user-name" id="fullname">الاسم الثلاثي</h2>
-<div class="user-handle" id="username">@username</div>
-
-<div class="info-card">
-    <div class="item"><span>🎂 تاريخ الميلاد</span><b id="birth">--</b></div>
-    <div class="item"><span>💍 الحالة الاجتماعية</span><b id="social">--</b></div>
-    <div class="item"><span>👫 الجنس</span><b id="gender">--</b></div>
-    <div class="item"><span>🍀 الطبقة الاجتماعية</span><b id="ezidi">--</b></div>
-    <div class="item"><span>🌍 الدولة</span><b id="country">--</b></div>
-    <div class="item"><span>📍 المنطقة</span><b id="region">--</b></div>
-    <div class="item"><span>💼 المهنة</span><b id="job">--</b></div>
-    <div class="item"><span>🗣️ اللغة</span><b id="language">--</b></div>
-    <div class="item"><span>📊 مستوى اللغة</span><b id="level">--</b></div>
 </div>
 
-<h3 class="posts-title">منشوراتي</h3>
+<style>
 
-<div id="postsContainer" class="posts-container"></div>
+.profile-section{
 
-<script>
-// 1. عرض بيانات البروفايل والصورة الشخصية المحفوظة
-document.getElementById("fullname").innerText = localStorage.getItem("fullname") || "الاسم الثلاثي";
-document.getElementById("birth").innerText = localStorage.getItem("birth") || "--";
-document.getElementById("gender").innerText = localStorage.getItem("gender") || "--";
-document.getElementById("social").innerText = localStorage.getItem("social") || "--";
-document.getElementById("ezidi").innerText = localStorage.getItem("ezidiClass") || "--";
-document.getElementById("country").innerText = localStorage.getItem("country") || "--";
-document.getElementById("region").innerText = localStorage.getItem("region") || "--";
-document.getElementById("job").innerText = localStorage.getItem("job") || "--";
-document.getElementById("language").innerText = localStorage.getItem("language") || "--";
-document.getElementById("level").innerText = localStorage.getItem("level") || "--";
+display:flex;
 
-let userAvatar = localStorage.getItem("userAvatar");
-if (userAvatar) {
-    document.getElementById("profileImage").src = userAvatar;
+justify-content:center;
+
+margin-top:-90px;
+
 }
 
-// 2. تصحيح كود قراءة وعرض المنشورات (تصحيح أخطاء الـ Template Literals)
+.profile-ring{
+
+position:relative;
+
+width:230px;
+
+height:230px;
+
+padding:6px;
+
+border-radius:50%;
+
+background:linear-gradient(
+45deg,
+#00ff66,
+#0066ff,
+#00ff66,
+#0066ff
+);
+
+background-size:300% 300%;
+
+animation:ringMove 6s linear infinite;
+
+}
+
+@keyframes ringMove{
+
+0%{background-position:0% 50%;}
+
+50%{background-position:100% 50%;}
+
+100%{background-position:0% 50%;}
+
+}
+
+#profilePhoto{
+
+width:100%;
+
+height:100%;
+
+border-radius:50%;
+
+object-fit:cover;
+
+background:white;
+
+cursor:pointer;
+
+}
+
+#changePhoto{
+
+position:absolute;
+
+bottom:10px;
+
+right:10px;
+
+width:46px;
+
+height:46px;
+
+border:none;
+
+border-radius:50%;
+
+background:#00c853;
+
+color:white;
+
+font-size:22px;
+
+cursor:pointer;
+
+}
+
+</style>
+<div class="profile-info">
+
+<h1 id="fullname">
+الاسم الثلاثي
+</h1>
+
+<p id="username">
+@username
+</p>
+
+</div>
+
+<style>
+
+.profile-info{
+
+text-align:center;
+
+margin-top:22px;
+
+}
+
+.profile-info h1{
+
+font-size:34px;
+
+font-weight:bold;
+
+color:#202124;
+
+}
+
+.profile-info p{
+
+margin-top:8px;
+
+font-size:20px;
+
+color:#6b7280;
+
+letter-spacing:1px;
+
+}
+
+</style>
+<div class="info-card">
+
+<div class="info-row">
+<span>🎂 تاريخ الميلاد</span>
+<div id="birth">--</div>
+</div>
+
+<div class="info-row">
+<span>♈ البرج</span>
+<div id="zodiac">--</div>
+</div>
+
+<div class="info-row">
+<span>👫 الجنس</span>
+<div id="gender">--</div>
+</div>
+
+<div class="info-row">
+  <span>💍 الحالة الاجتماعية</span>
+  <div id="maritalStatus">---</div>
+</div>
+
+<div class="info-row">
+  <span>☘️ الطبقة الإيزيدية</span>
+  <div id="yazidiClass">---</div>
+</div>
+
+<div class="info-row">
+<span>🌍 الدولة</span>
+<div id="country">--</div>
+</div>
+
+<div class="info-row">
+<span>📍 المنطقة</span>
+<div id="region">--</div>
+</div>
+
+<div class="info-row">
+<span>💼 المهنة</span>
+<div id="job">--</div>
+</div>
+
+<div class="info-row">
+<span>🗣️ اللغة</span>
+<div id="language">--</div>
+</div>
+
+</div>
+
+<style>
+
+.info-card{
+
+width:92%;
+
+max-width:700px;
+
+margin:35px auto;
+
+background:#ffffff;
+
+border-radius:24px;
+
+overflow:hidden;
+
+box-shadow:0 10px 35px rgba(0,0,0,.12);
+
+}
+
+.info-row{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px;
+
+border-bottom:1px solid #ececec;
+
+font-size:19px;
+
+}
+
+.info-row:last-child{
+
+border-bottom:none;
+
+}
+
+.info-row span{
+
+font-weight:bold;
+
+color:#333;
+
+}
+
+.info-row div{
+
+font-weight:bold;
+
+color:#0077ff;
+
+}
+
+</style>
+<div class="profile-posts">
+
+    <h2 onclick="location.href='create-post.html'" style="cursor:pointer;">
+    📷 المنشورات
+</h2>
+
+    <div id="postsContainer">
+
+        <div class="empty-posts">
+            لا توجد منشورات حتى الآن
+        </div>
+
+    </div>
+
+</div>
+<style>
+
+.profile-posts{
+
+width:92%;
+
+max-width:800px;
+
+margin:30px auto;
+
+}
+
+.profile-posts h2{
+
+font-size:28px;
+
+font-weight:bold;
+
+margin-bottom:20px;
+
+color:#222;
+
+}
+
+.empty-posts{
+
+background:#ffffff;
+
+border-radius:22px;
+
+padding:45px;
+
+text-align:center;
+
+font-size:22px;
+
+color:#888;
+
+box-shadow:0 10px 25px rgba(0,0,0,.10);
+
+}
+
+/* شكل المنشور */
+
+.post-card{
+
+background:#ffffff;
+
+border-radius:22px;
+
+overflow:hidden;
+
+margin-bottom:25px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.10);
+
+}
+
+.post-image{
+
+width:100%;
+
+display:block;
+
+}
+
+.post-text{
+
+padding:18px;
+
+font-size:20px;
+
+line-height:1.8;
+
+color:#222;
+
+}
+
+.post-date{
+
+padding:0 18px 18px;
+
+font-size:15px;
+
+color:#888;
+
+}
+
+</style>
+<script>
 const postsContainer = document.getElementById("postsContainer");
-const posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+// قراءة المنشورات المحفوظة
+const posts = JSON.parse(localStorage.getItem("dtmd_posts")) || [];
 
 if (posts.length > 0) {
+
     postsContainer.innerHTML = "";
-    posts.forEach(post => {
+
+    posts.reverse().forEach(post => {
+
         let card = document.createElement("div");
         card.className = "post-card";
 
-        let imageHTML = post.image ? `<img src="${post.image}" class="post-image">` : "";
-        let textHTML = post.text ? `<div class="post-text">${post.text}</div>` : "";
-        let dateHTML = `<div class="post-date">${post.time || ""}</div>`;
+        card.innerHTML = `
+            ${post.image ? `<img src="${post.image}" class="post-image">` : ""}
 
-        card.innerHTML = imageHTML + textHTML + dateHTML;
+            ${post.text ? `<div class="post-text">${post.text}</div>` : ""}
+
+            <div class="post-date">${post.date}</div>
+        `;
+
         postsContainer.appendChild(card);
+
     });
-} else {
-    postsContainer.innerHTML = "<p style='text-align:center; color:#888;'>لا توجد منشورات بعد</p>";
+
 }
 </script>
-
-</body>
-</html>
