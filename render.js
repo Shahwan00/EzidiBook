@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // قراءة صورة المستخدم وعرضها
+    let savedAvatar = localStorage.getItem("userAvatar");
+    if (savedAvatar) {
+        document.getElementById("profileImg").src = savedAvatar;
+    }
+
     let name = localStorage.getItem("fullname");
     if (name) {
         document.getElementById("fullname").innerText = name;
