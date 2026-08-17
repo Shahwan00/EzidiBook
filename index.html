@@ -3,162 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DTMD</title>
+    <title>DTMD | الرئيسية</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="fb-body">
+<body>
 
-    <!-- الشريط العلوي الرئيسية -->
-    <header class="fb-navbar">
-        <div class="fb-nav-right">
-            <div class="fb-logo">DTMD</div>
-            <div class="fb-search">
-                <input type="text" placeholder="بحث في فيسبوك...">
-            </div>
-        </div>
-        
-        <div class="fb-nav-center">
-            <a href="#" class="nav-tab active">🏠</a>
-            <a href="#" class="nav-tab">📺</a>
-            <a href="#" class="nav-tab">🏪</a>
-            <a href="#" class="nav-tab">👥</a>
-            <a href="#" class="nav-tab">🎮</a>
-        </div>
-
-        <div class="fb-nav-left">
-            <span class="icon-circle">⣿</span>
-            <span class="icon-circle">💬</span>
-            <span class="icon-circle">🔔<span class="badge">3</span></span>
-            <div class="profile-pic-sm">
-                <img src="https://via.placeholder.com/40" alt="Profile">
-            </div>
-        </div>
-    </header>
-
-    <!-- المحتوى الرئيسي (3 أعمدة) -->
-    <div class="fb-main-layout">
-
-        <!-- العمود الأيمن (القائمة الجانبية) -->
-        aside class="fb-sidebar-right">
-            <div class="menu-item bold">
-                <img src="https://via.placeholder.com/36" class="avatar-sm">
-                <span>شهوان خالد</span>
-            </div>
-            <div class="menu-item">👥 <span>الأصدقاء</span></div>
-            <div class="menu-item">👨‍👩‍👧‍👦 <span>المجموعات</span></div>
-            <div class="menu-item">🚩 <span>الصفحات</span></div>
-            <div class="menu-item">🏪 <span>Marketplace</span></div>
-            <div class="menu-item">📺 <span>الفيديو</span></div>
-            <div class="menu-item">📅 <span>المناسبة</span></div>
-            <div class="menu-item">🔖 <span>العناصر المحفوظة</span></div>
-            <div class="menu-item text-gray">⌄ <span>عرض المزيد</span></div>
-            
-            <hr class="divider">
-            <div class="sidebar-title">الاختصارات</div>
-            <div class="menu-item">🏔️ <span>عشاق السفر</span></div>
-            <div class="menu-item">💻 <span>تعلم البرمجة</span></div>
-            <div class="menu-item">⚽ <span>كرة القدم</span></div>
-            <div class="menu-item">🎸 <span>موسيقى</span></div>
-        </aside>
-
-        <!-- العمود الأوسط (صندوق النشر + المنشورات) -->
-        <main class="fb-feed">
-            
-            <!-- صندوق إنشاء منشور -->
-            <div class="create-post-card">
-                <div class="create-post-top">
-                    <img src="https://via.placeholder.com/40" class="avatar-sm">
-                    <input type="text" placeholder="بم تفكر؟" class="post-input-btn">
-                </div>
-                <hr class="divider">
-                <div class="create-post-actions">
-                    <button class="post-option">📹 <span>فيديو مباشر</span></button>
-                    <button class="post-option">🖼️ <span>صورة/فيديو</span></button>
-                    <button class="post-option">😊 <span>شعور/نشاط</span></button>
-                </div>
-            </div>
-
-            <!-- منشور تجريبي 1 -->
-            <div class="post-card">
-                <div class="post-header">
-                    <img src="https://via.placeholder.com/40" class="avatar-sm">
-                    <div class="post-info">
-                        <div class="author-name">شهوان خالد</div>
-                        <div class="post-meta">ساعة واحدة • 🌐</div>
-                    </div>
-                    <span class="more-dots">•••</span>
-                </div>
-
-                <div class="post-content">
-                    أحياناً أجمل الأماكن هي التي لم نخطط لزيارتها! 💙
-                </div>
-
-                <div class="post-image-container">
-                    <img src="https://via.placeholder.com/700x400" alt="منشور">
-                </div>
-
-                <div class="post-stats">
-                    <span>👍❤️ 128</span>
-                    <span>24 تعليق • 12 مشاركة</span>
-                </div>
-
-                <div class="post-actions">
-                    <button class="action-btn">👍 <span>أعجبني</span></button>
-                    <button class="action-btn">💬 <span>تعليق</span></button>
-                    <button class="action-btn">🎙️ <span>صوتي</span></button>
-                    <button class="action-btn">🔄 <span>مشاركة</span></button>
-                    <button class="action-btn">✈️ <span>إرسال</span></button>
-                </div>
-
-                <div class="comment-input-box">
-                    <img src="https://via.placeholder.com/32" class="avatar-xs">
-                    <div class="comment-field">
-                        <input type="text" placeholder="اكتب تعليقاً...">
-                        <span class="comment-icons">😊 📷 🎙️</span>
-                    </div>
-                </div>
-            </div>
-
-        </main>
-
-        <!-- العمود الأيسر (القصص والفيديوهات) -->
-        <aside class="fb-sidebar-left">
-            <div class="section-card">
-                <div class="section-header">
-                    <span>القصص</span>
-                    <a href="#" class="link">عرض الكل</a>
-                </div>
-                <div class="stories-list">
-                    <div class="story-item create-story">
-                        <img src="https://via.placeholder.com/100x150" class="story-bg">
-                        <div class="plus-btn">+</div>
-                        <span>إنشاء قصة</span>
-                    </div>
-                    <div class="story-item">
-                        <img src="https://via.placeholder.com/100x150" class="story-bg">
-                        <span class="story-user">سارة</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-card">
-                <div class="section-header">
-                    <span>الفيديوهات</span>
-                    <a href="#" class="link">عرض الكل</a>
-                </div>
-                <div class="video-preview-card">
-                    <div class="video-thumb">
-                        <img src="https://via.placeholder.com/300x160" alt="فيديو">
-                        <span class="play-icon">▶</span>
-                        <span class="duration">3:45</span>
-                    </div>
-                    <div class="video-title">منظر غروب الشمس رائع</div>
-                    <div class="video-stats">👍❤️ 75 • 12 تعليق</div>
-                </div>
-            </div>
-        </aside>
-
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <span>🌿 DTMD</span>
+        <span>🔔</span>
     </div>
+
+    <div class="main-content">
+        <h2>مرحباً بك في الواجهة الرئيسية</h2>
+        <p style="margin-top: 15px; color: #666;">آخر الأخبار والمنشورات تظهر هنا...</p>
+    </div>
+
+    <!-- الشريط السفلي الثابت -->
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item active">🏠</a>
+        <a href="#" class="nav-item">🎬</a>
+        <a href="#" class="nav-item">🔍</a>
+        <a href="#" class="nav-item">🎮</a>
+        <a href="profile.html" class="nav-item">👤</a>
+    </nav>
 
 </body>
 </html>
