@@ -27,6 +27,24 @@
         let email = document.getElementById("loginEmail").value.trim();
         let pass = document.getElementById("loginPassword").value;
 
+        // نمط التحقق من صحة صيغة البريد الإلكتروني
+        let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (email === "") {
+            alert("الرجاء إدخال البريد الإلكتروني");
+            return;
+        }
+
+        if (!emailPattern.test(email)) {
+            alert("الرجاء إدخال بريد إلكتروني صحيح (مثال: name@example.com)");
+            return;
+        }
+
+        if (pass === "") {
+            alert("الرجاء إدخال كلمة المرور");
+            return;
+        }
+
         let savedEmail = localStorage.getItem("email");
         let savedPass = localStorage.getItem("password");
 
