@@ -290,3 +290,44 @@ button:hover {
 .publish-btn:hover {
     background: #087f28;
 }
+
+/* ==========================================
+   تنسيق الوسائط لتناسب كافة الشاشات (Mobile, Tablet, Desktop)
+   ========================================== */
+.post-media img, 
+.post-media video,
+.preview-area img,
+.preview-area video {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 500px; /* حد أقصى للارتفاع لكي لا تأخذ الصورة الشاشة كاملة في اللابتوب */
+    object-fit: cover; /* يضمن ضبط أبعاد الصورة بشكل أنيق دون تشويه */
+    border-radius: 10px;
+    display: block;
+    margin: 10px auto;
+}
+
+/* تحسين تجاوب كارت المنشور على مختلف الشاشات */
+.post-card, 
+.create-post-card {
+    width: 95%;
+    max-width: 600px; /* يتوسع بشكل مريح على اللابتوب والأيباد */
+    margin: 15px auto;
+}
+
+/* تعديل خاص للشاشات الصغيرة جداً (الهواتف) */
+@media (max-width: 480px) {
+    .post-card, 
+    .create-post-card {
+        width: 98%;
+        padding: 10px;
+    }
+    
+    .post-media img, 
+    .post-media video {
+        max-height: 350px; /* ارتفاع مناسب جداً لشاشات الهواتف */
+    }
+}
+
+
