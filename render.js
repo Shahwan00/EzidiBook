@@ -1,5 +1,5 @@
 function showMessage() {
-    document.getElementById("message").innerHTML = 
+    document.getElementById("message").innerHTML = `
     <h3>مرحبًا بك في DTMD</h3>
 
     <p>
@@ -19,5 +19,5 @@ function showMessage() {
     </p>
 
     <button>أوافق وأتابع / Ich stimme zu</button>
-    ;
+    `;
 }
