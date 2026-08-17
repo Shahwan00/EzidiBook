@@ -1,9 +1,9 @@
 let mediaData = { image: "", video: "" };
 
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. التحقق من حالة تسجيل الدخول (في حال سجل خروجه لا يمكنه رؤية الصفحة)
+    // 1. التحقق من حالة تسجيل الدخول
     let isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (isLoggedIn === "false") {
+    if (isLoggedIn !== "true") {
         window.location.href = "login.html";
         return;
     }
@@ -131,9 +131,8 @@ function deletePost(id) {
     }
 }
 
-// دالة الخروج المباشرة
+// دالة الخروج الصحيحة
 function logout() {
-    localStorage.setItem("isLoggedIn", "false");
-    // التحويل فوراً لصفحة تسجيل الدخول أو إنشاء الحساب
+    localStorage.removeItem("isLoggedIn");
     window.location.href = "login.html";
 }
