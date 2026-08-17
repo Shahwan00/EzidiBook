@@ -3,113 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DTMD🌿 | إنشاء حساب</title>
+    <title>DTMD | الرئيسية</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-
-        <div class="logo">DTMD🌿</div>
-
-        <label class="image-box" for="photo">
-            <img id="preview" alt="معاينة الصورة">
-            <span id="plus">+</span>
-        </label>
-
-        <input type="file" id="photo" accept="image/*" hidden>
-
-        <input type="text" id="fullnameInput" placeholder="الاسم الثلاثي">
-
-        <input type="email" placeholder="البريد الإلكتروني">
-
-        <input type="password" placeholder="كلمة المرور">
-
-        <input type="password" placeholder="تأكيد كلمة المرور">
-
-        <label for="birth">تاريخ الميلاد</label>
-        <input type="date" id="birth">
-
-        <input type="text" id="zodiac" placeholder="البرج" readonly>
-
-        <select id="social">
-            <option selected disabled>اختر الحالة الاجتماعية</option>
-            <option>أعزب</option>
-            <option>متزوج</option>
-        </select>
-
-        <select id="gender">
-            <option selected disabled>⚥ اختر الجنس</option>
-            <option>ذكر ♂</option>
-            <option>أنثى ♀</option>
-        </select>
-
-        <select id="ezidiClass">
-            <option selected disabled>هل حضرتك من أي طبقة اجتماعية إيزيدية؟</option>
-            <option>مريد</option>
-            <option>شيخ</option>
-            <option>بير</option>
-        </select>
-
-        <select id="country">
-            <option selected disabled>اختر الدولة</option>
-            <option>ألمانيا</option>
-            <option>العراق</option>
-            <option>سوريا</option>
-            <option>تركيا</option>
-            <option>إسبانيا</option>
-            <option>فرنسا</option>
-            <option>هولندا</option>
-            <option>بلجيكا</option>
-            <option>السويد</option>
-            <option>النمسا</option>
-            <option>سويسرا</option>
-            <option>الدنمارك</option>
-            <option>النرويج</option>
-            <option>فنلندا</option>
-            <option>بريطانيا</option>
-            <option>أمريكا</option>
-            <option>كندا</option>
-            <option>أستراليا</option>
-        </select>
-
-        <input type="text" id="region" placeholder="المنطقة / المدينة">
-
-        <input type="text" id="job" placeholder="المهنة">
-
-        <label>اللغة الأم</label>
-        <input type="text" value="𐺩𐺏𐺨𐺋𐺨" readonly>
-
-        <label>اللغات التي تتحدث بها (يمكنك اختيار أكثر من لغة):</label>
-
-        <div class="checkbox-group" id="languages">
-            <label><input type="checkbox" name="lang" value="العربية"> العربية</label>
-            <label><input type="checkbox" name="lang" value="Hindi"> Hindi</label>
-            <label><input type="checkbox" name="lang" value="Deutsch"> Deutsch</label>
-            <label><input type="checkbox" name="lang" value="English"> English</label>
-            <label><input type="checkbox" name="lang" value="Español"> Español</label>
-            <label><input type="checkbox" name="lang" value="Français"> Français</label>
-            <label><input type="checkbox" name="lang" value="Türkçe"> Türkçe</label>
-            <label><input type="checkbox" name="lang" value="Русский"> Русский</label>
-            <label><input type="checkbox" name="lang" value="Italiano"> Italiano</label>
-            <label><input type="checkbox" name="lang" value="Português"> Português</label>
-            <label><input type="checkbox" name="lang" value="Nederlands"> Nederlands</label>
-            <label><input type="checkbox" name="lang" value="Svenska"> Svenska</label>
-        </div>
-
-        <select id="level">
-            <option selected disabled>مستوى اللغة</option>
-            <option>مبتدئ</option>
-            <option>متوسط</option>
-            <option>جيد جداً</option>
-            <option>ممتاز</option>
-        </select>
-
-        <button id="register">إنشاء الحساب</button>
-
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <span>🌿 DTMD</span>
+        <span>🔔</span>
     </div>
 
-    <script src="input.js"></script>
+    <div class="main-content">
+        <!-- كارت منشور محتوي على نص وصورة وفيديو -->
+        <div class="post-card">
+            <div class="post-header">
+                <div class="post-avatar">
+                    <img src="https://via.placeholder.com/40" alt="صورة المستخدم">
+                </div>
+                <div class="post-user-info">
+                    <span class="post-author-name">اسم المستخدم</span>
+                    <span class="post-time">منذ 10 دقائق</span>
+                </div>
+            </div>
+
+            <!-- نص المنشور -->
+            <div class="post-text">
+                مرحباً بالجميع! هذا منشور تجريبي يحتوي على نص، صورة، ومقطع فيديو.
+            </div>
+
+            <!-- صورة المنشور -->
+            <div class="post-media">
+                <img src="https://via.placeholder.com/500x300" alt="صورة المنشور">
+            </div>
+
+            <!-- فيديو المنشور -->
+            <div class="post-media">
+                <video controls>
+                    <source src="sample.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+
+            <!-- شريط التفاعلات أسفل المنشور -->
+            <div class="post-actions">
+                <button class="action-btn">❤️ <span>إعجاب</span></button>
+                <button class="action-btn">💬 <span>تعليق</span></button>
+                <button class="action-btn">🎙️ <span>تعليق صوتي</span></button>
+                <button class="action-btn">🔄 <span>مشاركة</span></button>
+                <button class="action-btn">✈️ <span>إرسال</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- الشريط السفلي الثابت -->
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item active">🏠</a>
+        <a href="#" class="nav-item">🎬</a>
+        <a href="#" class="nav-item">🔍</a>
+        <a href="#" class="nav-item">🎮</a>
+        <a href="profile.html" class="nav-item">👤</a>
+    </nav>
 
 </body>
 </html>
