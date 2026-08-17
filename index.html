@@ -1,225 +1,115 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DTMD🌿</title>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Tahoma,sans-serif;
-}
-
-body{
-background:#f5f5f5;
-}
-
-.container{
-width:95%;
-max-width:430px;
-margin:25px auto;
-background:#fff;
-padding:20px;
-border-radius:15px;
-box-shadow:0 0 10px rgba(0,0,0,.1);
-}
-
-.logo{
-text-align:center;
-font-size:35px;
-font-weight:bold;
-color:#0a9b32;
-margin-bottom:25px;
-}
-
-.image-box{
-width:130px;
-height:130px;
-margin:auto;
-border:3px solid #0a9b32;
-border-radius:15px;
-display:flex;
-align-items:center;
-justify-content:center;
-cursor:pointer;
-overflow:hidden;
-}
-
-.image-box img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:none;
-}
-
-.image-box span{
-font-size:45px;
-color:#0a9b32;
-}
-
-input,select{
-width:100%;
-padding:12px;
-margin-top:15px;
-border:1px solid #ccc;
-border-radius:10px;
-font-size:16px;
-}
-
-button{
-width:100%;
-margin-top:20px;
-padding:14px;
-background:#0a9b32;
-color:#fff;
-border:none;
-border-radius:10px;
-font-size:18px;
-cursor:pointer;
-}
-
-label{
-display:block;
-margin-top:15px;
-font-size:14px;
-color:#333;
-}
-
-.checkbox-group {
-max-height: 150px;
-overflow-y: auto;
-border: 1px solid #ccc;
-border-radius: 10px;
-padding: 10px;
-margin-top: 10px;
-background: #fafafa;
-}
-
-.checkbox-group label {
-display: flex;
-align-items: center;
-gap: 10px;
-margin-top: 8px;
-font-size: 15px;
-cursor: pointer;
-}
-
-.checkbox-group input[type="checkbox"] {
-width: auto;
-margin-top: 0;
-cursor: pointer;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTMD🌿 | إنشاء حساب</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="container">
+    <div class="container">
 
-<div class="logo">DTMD🌿</div>
+        <div class="logo">DTMD🌿</div>
 
-<label class="image-box" for="photo">
-<img id="preview">
-<span id="plus">+</span>
-</label>
+        <label class="image-box" for="photo">
+            <img id="preview" alt="معاينة الصورة">
+            <span id="plus">+</span>
+        </label>
 
-<input type="file" id="photo" accept="image/*" hidden>
+        <input type="file" id="photo" accept="image/*" hidden>
 
-<input type="text" id="fullnameInput" placeholder="الاسم الثلاثي">
+        <input type="text" id="fullnameInput" placeholder="الاسم الثلاثي">
 
-<input type="email" placeholder="البريد الإلكتروني">
+        <input type="email" placeholder="البريد الإلكتروني">
 
-<input type="password" placeholder="كلمة المرور">
+        <input type="password" placeholder="كلمة المرور">
 
-<input type="password" placeholder="تأكيد كلمة المرور">
+        <input type="password" placeholder="تأكيد كلمة المرور">
 
-<label for="birth">تاريخ الميلاد</label>
-<input type="date" id="birth">
+        <label for="birth">تاريخ الميلاد</label>
+        <input type="date" id="birth">
 
-<input type="text" id="zodiac" placeholder="البرج" readonly>
+        <input type="text" id="zodiac" placeholder="البرج" readonly>
 
-<select id="social">
-<option selected disabled>اختر الحالة الاجتماعية</option>
-<option>أعزب</option>
-<option>متزوج</option>
-</select>
+        <select id="social">
+            <option selected disabled>اختر الحالة الاجتماعية</option>
+            <option>أعزب</option>
+            <option>متزوج</option>
+        </select>
 
-<select id="gender">
-<option selected disabled>⚥اختر الجنس</option>
-<option>ذكر♂</option>
-<option>أنثى♀</option>
-</select>
+        <select id="gender">
+            <option selected disabled>⚥ اختر الجنس</option>
+            <option>ذكر ♂</option>
+            <option>أنثى ♀</option>
+        </select>
 
-<select id="ezidiClass">
-<option selected disabled>هل حضرتك من أي طبقة اجتماعية إيزيدية؟</option>
-<option>مريد</option>
-<option>شيخ</option>
-<option>بير</option>
-</select>
+        <select id="ezidiClass">
+            <option selected disabled>هل حضرتك من أي طبقة اجتماعية إيزيدية؟</option>
+            <option>مريد</option>
+            <option>شيخ</option>
+            <option>بير</option>
+        </select>
 
-<select id="country">
-<option selected disabled>اختر الدولة</option>
-<option>ألمانيا</option>
-<option>العراق</option>
-<option>سوريا</option>
-<option>تركيا</option>
-<option>إسبانيا</option>
-<option>فرنسا</option>
-<option>هولندا</option>
-<option>بلجيكا</option>
-<option>السويد</option>
-<option>النمسا</option>
-<option>سويسرا</option>
-<option>الدنمارك</option>
-<option>النرويج</option>
-<option>فنلندا</option>
-<option>بريطانيا</option>
-<option>أمريكا</option>
-<option>كندا</option>
-<option>أستراليا</option>
-</select>
+        <select id="country">
+            <option selected disabled>اختر الدولة</option>
+            <option>ألمانيا</option>
+            <option>العراق</option>
+            <option>سوريا</option>
+            <option>تركيا</option>
+            <option>إسبانيا</option>
+            <option>فرنسا</option>
+            <option>هولندا</option>
+            <option>بلجيكا</option>
+            <option>السويد</option>
+            <option>النمسا</option>
+            <option>سويسرا</option>
+            <option>الدنمارك</option>
+            <option>النرويج</option>
+            <option>فنلندا</option>
+            <option>بريطانيا</option>
+            <option>أمريكا</option>
+            <option>كندا</option>
+            <option>أستراليا</option>
+        </select>
 
-<input type="text" id="region" placeholder="المنطقة / المدينة">
+        <input type="text" id="region" placeholder="المنطقة / المدينة">
 
-<input type="text" id="job" placeholder="المهنة">
+        <input type="text" id="job" placeholder="المهنة">
 
-<label>اللغة الام</label>
-<input type="text" value="𐺩𐺏𐺨𐺋𐺨" readonly>
+        <label>اللغة الأم</label>
+        <input type="text" value="𐺩𐺏𐺨𐺋𐺨" readonly>
 
-<label>اللغات التي تتحدث بها (يمكنك اختيار أكثر من لغة):</label>
+        <label>اللغات التي تتحدث بها (يمكنك اختيار أكثر من لغة):</label>
 
-<div class="checkbox-group" id="languages">
-<label><input type="checkbox" name="lang" value="العربية"> العربية</label>
-<label><input type="checkbox" name="lang" value="Hindi"> Hindi</label>
-<label><input type="checkbox" name="lang" value="Deutsch"> Deutsch</label>
-<label><input type="checkbox" name="lang" value="English"> English</label>
-<label><input type="checkbox" name="lang" value="Español"> Español</label>
-<label><input type="checkbox" name="lang" value="Français"> Français</label>
-<label><input type="checkbox" name="lang" value="Türkçe"> Türkçe</label>
-<label><input type="checkbox" name="lang" value="Русский"> Русский</label>
-<label><input type="checkbox" name="lang" value="Italiano"> Italiano</label>
-<label><input type="checkbox" name="lang" value="Português"> Português</label>
-<label><input type="checkbox" name="lang" value="Nederlands"> Nederlands</label>
-<label><input type="checkbox" name="lang" value="Svenska"> Svenska</label>
-</div>
+        <div class="checkbox-group" id="languages">
+            <label><input type="checkbox" name="lang" value="العربية"> العربية</label>
+            <label><input type="checkbox" name="lang" value="Hindi"> Hindi</label>
+            <label><input type="checkbox" name="lang" value="Deutsch"> Deutsch</label>
+            <label><input type="checkbox" name="lang" value="English"> English</label>
+            <label><input type="checkbox" name="lang" value="Español"> Español</label>
+            <label><input type="checkbox" name="lang" value="Français"> Français</label>
+            <label><input type="checkbox" name="lang" value="Türkçe"> Türkçe</label>
+            <label><input type="checkbox" name="lang" value="Русский"> Русский</label>
+            <label><input type="checkbox" name="lang" value="Italiano"> Italiano</label>
+            <label><input type="checkbox" name="lang" value="Português"> Português</label>
+            <label><input type="checkbox" name="lang" value="Nederlands"> Nederlands</label>
+            <label><input type="checkbox" name="lang" value="Svenska"> Svenska</label>
+        </div>
 
-<select id="level">
-<option selected disabled>مستوى اللغة</option>
-<option>مبتدئ</option>
-<option>متوسط</option>
-<option>جيد جداً</option>
-<option>ممتاز</option>
-</select>
+        <select id="level">
+            <option selected disabled>مستوى اللغة</option>
+            <option>مبتدئ</option>
+            <option>متوسط</option>
+            <option>جيد جداً</option>
+            <option>ممتاز</option>
+        </select>
 
-<button id="register">إنشاء الحساب</button>
+        <button id="register">إنشاء الحساب</button>
 
-</div>
+    </div>
 
-<!-- استدعاء ملف الجافاسكربت الخاص بحفظ وإدخال البيانات -->
-<script src="input.js"></script>
+    <script src="input.js"></script>
 
 </body>
 </html>
