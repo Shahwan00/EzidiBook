@@ -17,7 +17,6 @@ body{
     background:#f5f5f5;
 }
 
-/* الهيدر العلوي */
 .header-bg {
     height: 140px;
     background: linear-gradient(to bottom, #00e676, #00b0ff);
@@ -62,7 +61,6 @@ body{
     margin-bottom: 20px;
 }
 
-/* قائمة عرض البيانات */
 .info-list {
     background: #fafafa;
     border-radius: 12px;
@@ -92,7 +90,6 @@ body{
     color: #555;
 }
 
-/* صندوق المنشورات */
 .posts-box {
     width: 90%;
     max-width: 400px;
@@ -112,7 +109,6 @@ body{
 <div class="header-bg"></div>
 
 <div class="profile-card">
-    <!-- الصورة الشخصية بدون أيقونة الكاميرا -->
     <div class="avatar-container">
         <img id="profileImg" src="https://via.placeholder.com/90" alt="Profile">
     </div>
@@ -120,7 +116,6 @@ body{
     <div class="user-name" id="fullname">الاسم الثلاثي</div>
     <div class="username-tag" id="username">@username</div>
 
-    <!-- جدول عرض البيانات المحفوظة -->
     <div class="info-list">
         <div class="info-item"><span class="value" id="birth">--</span><span class="label">تاريخ الميلاد 🎂</span></div>
         <div class="info-item"><span class="value" id="zodiac">--</span><span class="label">البرج ♈</span></div>
@@ -138,23 +133,8 @@ body{
     لا توجد منشورات حتى الآن
 </div>
 
-<script>
-// جلب البيانات من الذاكرة وعرضها في العناصر الخاصة بها
-document.getElementById("fullname").innerText = localStorage.getItem("fullname") || "الاسم الثلاثي";
-document.getElementById("username").innerText = "@" + (localStorage.getItem("fullname") ? localStorage.getItem("fullname").replace(/\s+/g, '_') : "username");
-document.getElementById("birth").innerText = localStorage.getItem("birth") || "--";
-document.getElementById("zodiac").innerText = localStorage.getItem("zodiac") || "--";
-document.getElementById("gender").innerText = localStorage.getItem("gender") || "--";
-document.getElementById("social").innerText = localStorage.getItem("social") || "--";
-document.getElementById("ezidiClass").innerText = localStorage.getItem("ezidiClass") || "--";
-document.getElementById("country").innerText = localStorage.getItem("country") || "--";
-document.getElementById("region").innerText = localStorage.getItem("region") || "--";
-document.getElementById("job").innerText = localStorage.getItem("job") || "--";
-
-let langs = localStorage.getItem("language") || "--";
-let level = localStorage.getItem("level") ? " (" + localStorage.getItem("level") + ")" : "";
-document.getElementById("language").innerText = langs + level;
-</script>
+<!-- استدعاء ملف الجافاسكربت الخاص بقراءة البيانات وعرضها -->
+<script src="render.js"></script>
 
 </body>
 </html>
