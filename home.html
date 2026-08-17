@@ -3,102 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DTMD🌿</title>
+<title>DTMD | الرئيسية</title>
 
 <style>
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Tahoma, sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Tahoma, sans-serif;
 }
 
-body {
-    background: #f5f5f5;
-    padding-bottom: 70px; /* مساحة للشريط السفلي */
+body{
+    background:#f5f5f5;
+    padding-bottom: 70px; /* مساحة متوفرة لشريط التنقل السفلي */
 }
 
-/* الهيدر العلوي */
+/* الشريط العلوي */
 .top-bar {
     background: #0a9b32;
-    color: white;
+    color: #fff;
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.top-bar .logo {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.top-bar .bell {
-    font-size: 22px;
-    cursor: pointer;
+.main-content {
+    padding: 20px;
+    text-align: center;
 }
 
-/* الشريط السفلي التنقلي */
+/* شريط التنقل السفلي الثابت (Bottom Navigation) */
 .bottom-nav {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     height: 60px;
-    background: #9ac5f4;
+    background: #90caf9;
     display: flex;
     justify-content: space-around;
     align-items: center;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
-.nav-btn {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: none;
-    background: transparent;
-    font-size: 22px;
+.nav-item {
+    text-decoration: none;
+    font-size: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    transition: 0.2s;
 }
 
-/* الزر الأخضر المضلل كما بالصورة */
-.nav-btn.active {
+/* تمييز الصفحة النشطة */
+.nav-item.active {
     background: #0a9b32;
-    color: white;
 }
 </style>
 </head>
 
 <body>
 
-<!-- شريط العنوان العلوي -->
 <div class="top-bar">
-    <div class="bell">🔔</div>
-    <div class="logo">DTMD🌿</div>
+    <span>🌿 DTMD</span>
+    <span>🔔</span>
 </div>
 
-<!-- محتوى الصفحة الرئيسية -->
-<div style="padding: 20px; text-align: center;">
-    <h3>مرحباً بك في الواجهة الرئيسية</h3>
+<div class="main-content">
+    <h2>مرحباً بك في الواجهة الرئيسية</h2>
+    <p style="margin-top: 15px; color: #666;">آخر الأخبار والمنشورات تظهر هنا...</p>
 </div>
 
-<!-- الشريط السفلي بعد استبدال أيقونة اليدين بأيقونة الملف الشخصي -->
-<div class="bottom-nav">
-    <!-- أيقونة الملف الشخصي داخل الدائرة الخضراء بدلاً من اليدين -->
-    <button class="nav-btn active" onclick="window.location.href='profile.html'">
-        👤
-    </button>
-    
-    <button class="nav-btn">🎮</button>
-    <button class="nav-btn">🔍</button>
-    <button class="nav-btn">🎬</button>
-    
-    <button class="nav-btn">💚</button>
-</div>
+<!-- الشريط السفلي الثابت -->
+<nav class="bottom-nav">
+    <a href="home.html" class="nav-item active">🏠</a>
+    <a href="#" class="nav-item">🎬</a>
+    <a href="#" class="nav-item">🔍</a>
+    <a href="#" class="nav-item">🎮</a>
+    <a href="profile.html" class="nav-item">👤</a>
+</nav>
 
 </body>
 </html>
